@@ -32,4 +32,4 @@ bundle exec jekyll serve --livereload
 
 ### Images
 
-![Study Bitcoin](lasermind-og-standard.jpg)Study Bitcoin
+![Study Bitcoin](lasermind-og-standard.jpg "Study Bitcoin")Study Bitcoin
