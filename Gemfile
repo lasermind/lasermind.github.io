@@ -23,4 +23,4 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-gem 'jekyll-seo-tag', '~> 2.8'
+#gem 'jekyll-seo-tag', '~> 2.8'

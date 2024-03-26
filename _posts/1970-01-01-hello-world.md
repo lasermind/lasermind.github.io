@@ -1,5 +1,9 @@
 ---
 title: Hello World<span>!</span>
+tagline: This is my Hello World post
+description: A new website is about to be forged and here is the first Hello World post, as it should be. For testing purposes, I extend this description with some more nonsense.
+
+image: og-hello-world.jpg
 date: 1970-01-01 02:10:00
 categories: [helloworld]
 tags: [helloworld]
@@ -25,6 +29,7 @@ A list
 console.log('test');
 ```
 
+To start local Jekyll server, type in the project’s directory:
 ```bash
 bundle exec jekyll serve --livereload
 ```
@@ -32,4 +37,4 @@ bundle exec jekyll serve --livereload
 
 ### Images
 
-![Study Bitcoin](lasermind-og-standard.jpg "Study Bitcoin")Study Bitcoin
+![Study Bitcoin](og-default.jpg "Study Bitcoin")Study Bitcoin

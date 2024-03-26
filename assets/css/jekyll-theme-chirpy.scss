@@ -1,0 +1,237 @@
+---
+---
+
+@import 'main';
+
+/* append your custom style below */
+
+
+:root {
+  --menu-gradient-light: hsla(211, 45%, 72%, 1); // ≈#97b7d7
+  --menu-gradient-dark:  hsla(215, 49%, 58%, 1); // ≈#5d92c7
+  --menu-title-color: hsla(215, 100%, 99%, 1);
+  --menu-title-color-dark: hsla(0, 0%, 85%, 1);
+  --shadow-blueish: hsla(215,100%,5%,0.9);
+  --menu-subtitle-color: hsla(212, 50%, 40%, 1);
+  --sidebar-muted-color: white !important;
+  --sidebar-muted-color-dark: hsla(15,100%, 95%, 0.45);
+  --sidebar-active-color-dark: hsla(15,100%, 100%, 0.85);
+  --sidebar-active-bg: hsla(215,100%,100%,0.75) !important;
+  --sidebar-hover-bg: hsla(215,100%,100%,0.2) !important;
+  --sidebar-active-bg-dark: hsla(15,100%,95%,0.05) !important;
+  --sidebar-hover-bg-dark: hsla(15,100%,95%,0.025) !important;
+}
+
+
+/* Give blue gradient background in light mode */
+#sidebar {
+  background-image: linear-gradient(to right, var(--menu-gradient-light), var(--menu-gradient-dark));
+  border-right: 0px solid hsla(215, 50%, 50%, 1);
+  }
+/* No special background in dark mode */
+html[data-mode="dark"] #sidebar { background-image: none; }
+
+/* Fix margin, causing unwanted transition effect */
+#sidebar .profile-wrapper { margin-top: 3em; }
+
+
+
+
+/* Mobile menu style fix */
+@media (max-width: 849px) {
+
+  /* Prepare transition effects */
+  #main-wrapper {
+    transition: transform .3s ease, filter .2s ease;
+    }
+
+  /* Change sidebar/mobile menu slide-in effect */
+  [sidebar-display] #main-wrapper {
+    transform: translateX(0px);
+    filter: blur(5px) saturate(30%);
+    opacity: 0.65;
+    }
+
+  /* Give shadow to sidebar, overcasting blurred main section */
+  [sidebar-display] #sidebar {
+    box-shadow: 4px 0px 16px hsla(215,100%,5%,0.5);
+    }
+}
+
+
+
+/* Restyle avatar */
+#sidebar #avatar {
+  width:  8.5rem;
+  height: 8.5rem;
+  margin-left: 0.5em;
+  background-image: url("/assets/img/larrylasermind-avatar-blue.jpg");
+  background-size: contain;
+  transition: all 0.5s ease;
+  box-shadow: 2px 3px 10px rgba(0,0,20,0.5),
+              -4px -4px 24px rgba(255,255,255,0.4);
+  }
+/* Avatar: don't use <img> tag, but CSS background property */
+#sidebar #avatar img { display: none; }
+
+/* Avatar hover effect */
+#sidebar #avatar:hover {
+  box-shadow: 1.5px 8px 15px rgba(0,0,20,0.4),
+              -4px -4px 12px rgba(255,255,255,0.1);
+  transform: scale(1.01);
+  transition: all 0.4s ease;
+  }
+/* Avatar in dark mode */
+html[data-mode="dark"] #sidebar #avatar {
+  box-shadow: 2px 3px 14px black;
+  }
+html[data-mode="dark"] #sidebar #avatar:hover {
+  box-shadow: 2px 6px 16px black;
+  }
+
+
+
+
+/* Restyle sidebar titles */
+#sidebar .site-title a {
+  color: var(--menu-title-color);
+  text-shadow: 1px 1px 2px var(--shadow-blueish),
+               0px 0px 16px rgba(255,255,255,0.7);
+  }
+/* Give fancy hover effect (in light mode) */
+#sidebar .site-title a:hover {
+  color: var(--menu-title-color);
+  text-shadow: 2px 3px 5px hsla(215,100%,5%,0.75),
+               0px 0px 22px rgba(255,255,255,1);
+  }
+/* Sidebar in dark mode */
+html[data-mode="dark"] {
+    #sidebar .site-title a {
+      color: var(--menu-title-color-dark);
+      /* Apply small shadow in dark mode */
+      text-shadow: 2px 2px 3px black;
+      transition: all 0.4s ease;
+      }
+  }
+html[data-mode="dark"] {
+      #sidebar .site-title a:hover {
+      color: white;
+      transition: all 0.4s ease;
+      text-shadow: 3px 5px 5px black;
+      }
+    }
+
+/* Sidebar subtitle: color and dark mode */
+#sidebar .site-subtitle { color: var(--menu-subtitle-color); }
+html[data-mode="dark"] {
+  #sidebar .site-subtitle {
+    color: #b1b1b1;
+    }
+}
+
+
+
+
+/* Restyle menu items */
+/* Revert menu section opacity to 1 */
+#sidebar ul li.nav-item { opacity: 1; }
+
+/* New menu pill borders */
+#sidebar ul li.nav-item a.nav-link {
+  border-radius:0.42rem;
+  }
+/* Tweak contrast of icons a little bit */
+#sidebar ul li.nav-item a.nav-link i {
+  opacity: 0.85;
+  }
+html[data-mode="dark"] {
+  #sidebar ul li.nav-item.active a.nav-link i {
+    opacity: 0.8;
+    }
+}
+/* Mild letter-spacing on: menu text */
+#sidebar ul li.nav-item a.nav-link span {
+  letter-spacing: 0.085em;
+  }
+/* Drop shadow on: menu icon and text */
+#sidebar ul li.nav-item a.nav-link i,
+#sidebar ul li.nav-item a.nav-link span {
+  text-shadow: 0.5px 0.5px 1px var(--shadow-blueish);
+  }
+/*  Active element: excluded from shadow, plus special color */
+#sidebar ul li.nav-item.active a.nav-link i,
+#sidebar ul li.nav-item.active a.nav-link span {
+  text-shadow: none;
+  color: var(--shadow-blueish);
+}
+html[data-mode="dark"] {
+  #sidebar ul li.nav-item.active a.nav-link i,
+  #sidebar ul li.nav-item.active a.nav-link span {
+    color: var(--sidebar-active-color-dark);
+    }
+}
+/* Text color of muted menu items in dark mode */
+html[data-mode="dark"] {
+  #sidebar ul li.nav-item a.nav-link i,
+  #sidebar ul li.nav-item a.nav-link span {
+    color: var(--sidebar-muted-color-dark);
+    }
+  }
+
+/* Menu pills: styles */
+#sidebar ul li.nav-item.active .nav-link {
+  background-color: var(--sidebar-active-bg);
+  }
+#sidebar ul li.nav-item a.nav-link:hover {
+  background-color: var(--sidebar-hover-bg);
+  }
+#sidebar ul li.nav-item.active a.nav-link:hover {
+  background-color: var(--sidebar-active-bg);
+  }
+html[data-mode="dark"] {
+    #sidebar ul li.nav-item.active .nav-link {
+      background-color: var(--sidebar-active-bg-dark);
+      }
+    #sidebar ul li.nav-item a.nav-link:hover {
+      background-color: var(--sidebar-hover-bg-dark);
+      }
+    #sidebar ul li.nav-item.active a.nav-link:hover {
+      background-color: var(--sidebar-active-bg-dark);
+      }
+}
+/* Menu pills: hover effect */
+@media (hover: hover) {
+.nav-link {
+  transition: background-color 0.7s ease-in-out;
+  }
+.nav-link:hover {
+  transition: background-color 0.1s ease-in-out;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Fix font for mobile title bar */
+#topbar-title {
+  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif;
+  font-weight: 700;
+  cursor: default;
+  }
+
+/*
+#topbar-wrapper {
+  background-image: linear-gradient(to right, #97b7d7, #5d92c7);
+  }
+
+#topbar-title {
+  color: var(--menu-title-color);
+  text-shadow: 1px 1px 2px var(--shadow-blueish);
+}*/
