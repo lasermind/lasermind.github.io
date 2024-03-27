@@ -235,3 +235,24 @@ html[data-mode="dark"] {
   color: var(--menu-title-color);
   text-shadow: 1px 1px 2px var(--shadow-blueish);
 }*/
+
+
+
+/** MathJax styles and fixes **/
+/* Make font size smaller on small viewports */
+@media (max-width: 600px) {
+    mjx-container {
+    font-size: 70% !important;
+    }
+}
+/* Style equation display */
+[id^='mjx-eqn'] { text-align: left; }
+mjx-labels { opacity: 0.6; }
+mjx-mtext { font-size: 65%; }
+
+
+
+
+
+
+/** Special post styles **/
