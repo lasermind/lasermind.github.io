@@ -39,32 +39,53 @@ html[data-mode="dark"] #sidebar { background-image: none; }
 
 /* Mobile menu style fix */
 @media (max-width: 849px) {
-
   /* Prepare transition effects */
   #main-wrapper {
-    transition: transform .3s ease, filter .2s ease;
+    transition: transform .3s ease, filter 0.2s ease, opacity 0.2s ease;
     }
-
   /* Change sidebar/mobile menu slide-in effect */
   [sidebar-display] #main-wrapper {
     transform: translateX(0px);
     filter: blur(5px) saturate(30%);
+    transition: transform .3s ease, filter 4s ease-in, opacity 6s ease;
     opacity: 0.65;
     }
-
   /* Give shadow to sidebar, overcasting blurred main section */
   [sidebar-display] #sidebar {
     box-shadow: 4px 0px 16px hsla(215,100%,5%,0.5);
     }
 }
+/* Styling of new sidebar closer*/
+#sidebar-closer {
+  visibility: visible;
+  position: absolute;
+  left: 0;
+  font-size: 115%;
+  color: var(--sidebar-muted-color); /* default: --sidebar-active-color */
+                  /* 3rem: from #topbar-wrapper height */          /* 2px: a beautifying offset for font-size: 115% */
+  margin-top: calc( ((3rem - 1rem * var(--bs-btn-line-height)) / 4) - 2px );
+  text-shadow: 0.5px 0.5px 2px var(--shadow-blueish);
+  transition: all  0.2s ease;
+  }
+#sidebar-closer:hover {
+  transition: all  0.2s ease;
+  text-shadow: 1px 1.5px 3px var(--shadow-blueish);
+  }
+html[data-mode="dark"] {
+  #sidebar-closer { color: var(--sidebar-muted-color-dark); }
+  }
+@media (min-width: 849px) {
+    #sidebar-closer { visibility: hidden; }
+  }
+
 
 
 
 /* Restyle avatar */
 #sidebar #avatar {
-  width:  8.5rem;
-  height: 8.5rem;
-  margin-left: 0.5em;
+  width:  7.5rem;
+  height: 7.5rem;
+  margin-left: 0.75rem;
   background-image: url("/assets/img/larrylasermind-avatar-blue.jpg");
   background-size: contain;
   transition: all 0.5s ease;
