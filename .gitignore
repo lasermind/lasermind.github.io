@@ -16,8 +16,10 @@ package-lock.json
 
 # IDE configurations
 .idea
-.editorconfig
-.raw
 
 # Misc
 assets/js/dist
+
+# My config
+.raw
+.editorconfig
