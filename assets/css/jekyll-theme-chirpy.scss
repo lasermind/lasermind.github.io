@@ -12,6 +12,7 @@
   --menu-title-color: hsla(215, 100%, 99%, 1);
   --menu-title-color-dark: hsla(0, 0%, 85%, 1);
   --shadow-blueish: hsla(215,100%,5%,0.9);
+  --shadow-blueish-soft: hsla(215,100%,5%,0.3);
   --menu-subtitle-color: hsla(212, 50%, 40%, 1);
   --sidebar-muted-color: white !important;
   --sidebar-muted-color-dark: hsla(15,100%, 95%, 0.45);
@@ -32,7 +33,11 @@
 html[data-mode="dark"] #sidebar { background-image: none; }
 
 /* Fix margin, causing unwanted transition effect */
-#sidebar .profile-wrapper { margin-top: 3em; }
+#sidebar .profile-wrapper {
+  margin-top: 1em;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  }
 
 
 
@@ -83,11 +88,11 @@ html[data-mode="dark"] {
 
 /* Restyle avatar */
 #sidebar #avatar {
-  width:  7.5rem;
-  height: 7.5rem;
-  margin-left: 0.75rem;
+  width:  8rem;
+  height: 8rem;
+  margin: auto;
   background-image: url("/assets/img/larrylasermind-avatar-blue.jpg");
-  background-size: contain;
+  background-size: cover;
   transition: all 0.5s ease;
   box-shadow: 2px 3px 10px rgba(0,0,20,0.5),
               -4px -4px 24px rgba(255,255,255,0.4);
@@ -114,6 +119,10 @@ html[data-mode="dark"] #sidebar #avatar:hover {
 
 
 /* Restyle sidebar titles */
+#sidebar .site-title {
+  text-align: center;
+  line-height: 1.1;
+  }
 #sidebar .site-title a {
   color: var(--menu-title-color);
   text-shadow: 1px 1px 2px var(--shadow-blueish),
@@ -143,7 +152,12 @@ html[data-mode="dark"] {
     }
 
 /* Sidebar subtitle: color and dark mode */
-#sidebar .site-subtitle { color: var(--menu-subtitle-color); }
+#sidebar .site-subtitle {
+  color: var(--menu-subtitle-color);
+  text-align: center;
+  font-size: 90%;
+  font-style: normal !important;
+ }
 html[data-mode="dark"] {
   #sidebar .site-subtitle {
     color: #b1b1b1;
@@ -205,6 +219,7 @@ html[data-mode="dark"] {
   }
 #sidebar ul li.nav-item a.nav-link:hover {
   background-color: var(--sidebar-hover-bg);
+  transition: background-color 0.4s ease;
   }
 #sidebar ul li.nav-item.active a.nav-link:hover {
   background-color: var(--sidebar-active-bg);
@@ -226,15 +241,65 @@ html[data-mode="dark"] {
   transition: background-color 0.7s ease-in-out;
   }
 .nav-link:hover {
-  transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   }
 }
 
+/* Divider dot between dark mode toggle and social */
+#sidebar .sidebar-bottom span.icon-border {
+  display: none;
+  }
 
-
-
-
-
+/* Social account button */
+#sidebar .sidebar-bottom {
+  padding-left: 2.25rem;
+  }
+#sidebar .sidebar-bottom a {
+  margin-bottom: 1rem;
+  margin-right: 0.75rem;
+  box-shadow: 1px 1.5px 1px 0px var(--shadow-blueish-soft);
+  color: var(--shadow-blueish);
+  }
+#sidebar .sidebar-bottom a:not(:last-child) {
+  margin-right: 0.75rem;
+  }
+#sidebar .sidebar-bottom a i {
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+#sidebar .sidebar-bottom a:hover,
+#sidebar .sidebar-bottom a:focus {
+  transform: translateY(-3px);
+  background-color: var(--sidebar-btn-bg);
+  box-shadow: 1px 6px 6px 0px var(--shadow-blueish-soft);
+  }
+#sidebar .sidebar-bottom a:hover i,
+#sidebar .sidebar-bottom a:focus i {
+  opacity: 1;
+  transition: all 0.2s ease;
+  }
+#sidebar .sidebar-bottom a i.icon-wavlake {
+  background-image: url('/assets/img/icon-wavlake-blueish.svg');
+  background-repeat: no-repeat;
+  width: 72%;
+  height: 72%;
+  opacity: 0.8;
+  background-position-x: 1px;
+  }
+#sidebar .sidebar-bottom a:hover i.icon-wavlake {
+  opacity: 1;
+}
+html[data-mode="dark"] {
+  #sidebar .sidebar-bottom a {
+    color: unset;
+    }
+  #sidebar .sidebar-bottom a i.icon-wavlake {
+    filter: invert(100%) brightness(80%) saturate(0%);
+    }
+    #sidebar .sidebar-bottom a:hover i.icon-wavlake {
+      opacity: 0.8;
+    }
+}
 
 
 

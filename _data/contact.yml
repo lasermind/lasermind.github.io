@@ -4,8 +4,13 @@
   icon: "fab fa-github"
 
 - type: twitter
-  icon: "fa-brands fa-x-twitter"
+  icon: "fab fa-square-x-twitter"
 
+- type: youtube
+  icon: "fab fa-youtube"
+
+- type: wavlake
+  icon: "icon-wavlake"
 
 #- type: email
 #  icon: "fas fa-envelope"

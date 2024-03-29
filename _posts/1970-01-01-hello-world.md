@@ -1,5 +1,5 @@
 ---
-title: Hello World<span>!</span>
+title: Hello World !
 tagline: This is my Hello World post
 description: A new website is about to be forged and here is the first Hello World post, as it should be. For testing purposes, I extend this description with some more nonsense.
 
@@ -32,7 +32,7 @@ console.log('test');
 
 To start local Jekyll server, type in the project’s directory:
 ```bash
-bundle exec jekyll serve --livereload
+bundle exec jekyll serve --livereload --watch
 ```
 
 ### Math expressions

@@ -16,7 +16,7 @@ timezone: UTC
 
 title: Lasermind’s Documents # the main title
 
-tagline: A collection of tips, tricks and guides all around something something Bitcoin  # it will display as the sub-title
+tagline: A collection of tips, tricks and how-to guides all around something something Bitcoin  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A collection of tips, tricks and guides all around Bitcoin – assembled by Lasermind.
@@ -31,6 +31,12 @@ github:
 twitter:
   username: LarryLasermind # change to your twitter username
 
+youtube:
+  username: lasermind
+
+wavlake:
+  username: lasermind
+
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
@@ -40,6 +46,7 @@ social:
     # The first element serves as the copyright owner's link
     - https://twitter.com/LarryLasermind # change to your twitter homepage
     - https://github.com/lasermind # change to your github homepage
+    - https://youtube.com/@lasermind
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
