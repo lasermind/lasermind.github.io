@@ -1,12 +1,12 @@
 ---
 title: Hello World !
 tagline: This is my Hello World post
-description: A new website is about to be forged and here is the first Hello World post, as it should be. For testing purposes, I extend this description with some more nonsense.
+description: A new website is about to be forged! Therefore here is the first Hello World post, as it's supposed to be. Only for testing purposes, I extend this description with some more nonsense.
 
 image: og-hello-world.jpg
 date: 1970-01-01 02:10:00
-categories: [helloworld]
-tags: [helloworld]
+categories: [Hello World, Bitcoin, Test]
+tags: [hello-world, test, bitcoin]
 img_path: /assets/img/
 math: true
 exclude: false

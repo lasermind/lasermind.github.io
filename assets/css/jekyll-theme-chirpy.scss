@@ -7,8 +7,8 @@
 
 
 :root {
-  --menu-gradient-light: hsla(211, 45%, 72%, 1); // ≈#97b7d7
-  --menu-gradient-dark:  hsla(215, 49%, 58%, 1); // ≈#5d92c7
+  --menu-gradient-light: hsla(211, 45%, 72%, 1); /* ≈#97b7d7 */
+  --menu-gradient-dark:  hsla(215, 49%, 58%, 1); /* ≈#5d92c7 */
   --menu-title-color: hsla(215, 100%, 99%, 1);
   --menu-title-color-dark: hsla(0, 0%, 85%, 1);
   --shadow-blueish: hsla(215,100%,5%,0.9);
@@ -21,8 +21,140 @@
   --sidebar-hover-bg: hsla(215,100%,100%,0.2) !important;
   --sidebar-active-bg-dark: hsla(15,100%,95%,0.05) !important;
   --sidebar-hover-bg-dark: hsla(15,100%,95%,0.025) !important;
+  --body-lightblue: hsla(220, 97%, 98%, 1);
+  --body-lightcreme: hsla(55, 20%, 98%, 1);
+  --link-color: hsla(215, 49%, 52%, 1) !important; /* slightly darker than --menu-gradient-dark */
+  --link-color-hover: hsla(0, 70%, 50%, 1);
+
+  --sidebar-width: 260px;
 }
 
+
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]), html[data-mode="light"] {
+    --main-bg: var(--body-lightcreme);
+    --topbar-bg: var(--main-bg);
+    }
+}
+
+
+
+
+/*
+ *     T O P B A R     --------------------------------------------------------
+ */
+
+/* Topbar fixed on mobile */
+#topbar-wrapper {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  z-index: 99;
+  }
+@media (min-width: 849px) {
+  #topbar-wrapper {
+    /*position: static;*/
+    left: var(--sidebar-width);
+    }
+}
+/* Since topbar is now fixed, add space before main content */
+#topbar-wrapper + div.row,
+#search-result-wrapper {
+  margin-top: 3rem; /* Size of topbar */
+}
+#search-result-wrapper {
+  margin-left: 1.25rem;
+}
+/* Topbar shadow */
+#topbar-wrapper {
+  box-shadow: 0px 10px 12px -17px var(--shadow-blueish);
+  }
+/* Breadcrumbs tweaks */
+#topbar #breadcrumb {
+  padding-left: 2.5rem;
+  }
+@media (min-width: 992px) {
+  #topbar #breadcrumb {
+    padding-left: 2.4rem;
+    }
+}
+@media (min-width: 1080px) {
+  #topbar #breadcrumb {
+    padding-left: 2.6rem;
+    }
+}
+@media (min-width: 1200px) {
+  #topbar #breadcrumb {
+    padding-left: 1.5rem;
+    }
+}
+@media (min-width: 1400px) {
+  #topbar #breadcrumb {
+    padding-left: 3.9rem;
+    }
+}
+@media (min-width: 1650px) {
+  #topbar #breadcrumb {
+    padding-left: 1rem;
+    }
+}
+
+
+/* Search field tweaks */
+@media (min-width: 850px) {
+  search {
+    margin-right: 2.25rem;
+    max-width: 200px;
+    width: 12rem;
+    }
+}
+
+@media (min-width: 1200px) {
+  search {
+    max-width: unset;
+    margin-right: 2.75rem;
+    width: calc(25% - 2.5rem);
+    }
+}
+@media (min-width: 1400px) {
+  search {
+    max-width: unset;
+    margin-right: 2.75rem;
+    width: calc(25% - 1.5rem);
+    }
+}
+@media (min-width: 1650px) {
+  search {
+    margin-right: calc( (100vw - 300px - 1194px) / 2  );
+    width: 18rem;
+
+    }
+}
+
+/* Fix font for mobile title bar */
+#topbar-title {
+  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif;
+  font-weight: 700;
+  cursor: default;
+  }
+
+
+/*
+#topbar-wrapper {
+  background-image: linear-gradient(to right, #97b7d7, #5d92c7);
+  }
+
+#topbar-title {
+  color: var(--menu-title-color);
+  text-shadow: 1px 1px 2px var(--shadow-blueish);
+}*/
+
+
+
+
+/*
+ *     S I D E B A R     ------------------------------------------------------
+ */
 
 /* Give blue gradient background in light mode */
 #sidebar {
@@ -38,7 +170,6 @@ html[data-mode="dark"] #sidebar { background-image: none; }
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   }
-
 
 
 
@@ -60,6 +191,14 @@ html[data-mode="dark"] #sidebar { background-image: none; }
     box-shadow: 4px 0px 16px hsla(215,100%,5%,0.5);
     }
 }
+
+/* Revert large size for big screens */
+@media (min-width: 1650px) {
+  #sidebar {
+    width: var(--sidebar-width); /* The default */
+    }
+}
+
 /* Styling of new sidebar closer*/
 #sidebar-closer {
   visibility: visible;
@@ -102,9 +241,9 @@ html[data-mode="dark"] {
 
 /* Avatar hover effect */
 #sidebar #avatar:hover {
-  box-shadow: 1.5px 8px 15px rgba(0,0,20,0.4),
+  box-shadow: 2px 9px 15px rgba(0,0,20,0.3),
               -4px -4px 12px rgba(255,255,255,0.1);
-  transform: scale(1.01);
+  transform: translate(0px, -2px);
   transition: all 0.4s ease;
   }
 /* Avatar in dark mode */
@@ -127,19 +266,21 @@ html[data-mode="dark"] #sidebar #avatar:hover {
   color: var(--menu-title-color);
   text-shadow: 1px 1px 2px var(--shadow-blueish),
                0px 0px 16px rgba(255,255,255,0.7);
+  display: inline-block;
   }
 /* Give fancy hover effect (in light mode) */
 #sidebar .site-title a:hover {
   color: var(--menu-title-color);
-  text-shadow: 2px 3px 5px hsla(215,100%,5%,0.75),
+  text-shadow: 2px 3px 6px hsla(215,100%,5%,0.7),
                0px 0px 22px rgba(255,255,255,1);
+  transform: translate(0px, -0.5px);
   }
 /* Sidebar in dark mode */
 html[data-mode="dark"] {
     #sidebar .site-title a {
       color: var(--menu-title-color-dark);
       /* Apply small shadow in dark mode */
-      text-shadow: 2px 2px 3px black;
+      text-shadow: 1.5px 2px 4px black;
       transition: all 0.4s ease;
       }
   }
@@ -147,7 +288,7 @@ html[data-mode="dark"] {
       #sidebar .site-title a:hover {
       color: white;
       transition: all 0.4s ease;
-      text-shadow: 3px 5px 5px black;
+      text-shadow: 3px 4px 8px black;
       }
     }
 
@@ -163,7 +304,6 @@ html[data-mode="dark"] {
     color: #b1b1b1;
     }
 }
-
 
 
 
@@ -315,27 +455,86 @@ html[data-mode="dark"] {
 }
 
 
+/*
+ *     3rd  S I D E  P A N E L     --------------------------------------------
+ */
 
 
 
-/* Fix font for mobile title bar */
-#topbar-title {
-  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif;
-  font-weight: 700;
-  cursor: default;
-  }
+
+
+
+
+
 
 /*
-#topbar-wrapper {
-  background-image: linear-gradient(to right, #97b7d7, #5d92c7);
+ *     M I S C     ------------------------------------------------------------
+ */
+
+/* Fix post list's preview image width */
+@media (min-width: 768px) {
+  .col-md-7 { width: 47%; }
+  .col-md-5 { width: 53%; }
+}
+#post-list .card .card-body .card-text.content p {
+  -webkit-line-clamp: 3;
+  }
+@media (min-width: 850px) {
+  #post-list .card .card-body .card-text.content p {
+    -webkit-line-clamp: 2;
+    }
+}
+@media ( (min-width: 1050px) and (max-width: 1200px) ) {
+  #post-list .card .card-body .card-text.content p {
+    -webkit-line-clamp: 4;
+    }
+}
+@media (min-width: 1200px) {
+  #post-list .card .card-body .card-text.content p {
+    -webkit-line-clamp: 3;
+    }
+}
+@media (min-width: 1300px) {
+  #post-list .card .card-body .card-text.content p {
+    -webkit-line-clamp: 4;
+    }
+}
+@media (min-width: 1550px) {
+  #post-list .card .card-body .card-text.content p {
+    -webkit-line-clamp: 5;
+    }
+}
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]), html[data-mode="light"] {
+  --card-hovor-bg: white;
+  --card-shadow: rgb(104, 104, 104, 0.07) 1px 2px 8px 0px, rgba(211, 209, 209, 0.15) 0 0 0 1px;
+  }
+}
+
+
+/* Post meta: fix category pills offset */
+.post-meta .me-1 {
+  margin-right: 0.65rem !important;
+}
+
+
+/* Fix for missing '--link-color-hover' variable */
+#page-category a:hover, #page-tag a:hover, .post-tags .post-tag:hover, .post-tail-wrapper .license-wrapper > a:hover, #search-results a:hover, #topbar #breadcrumb a:hover, .content a:not(.img-link):hover, .post-meta a:not([class]):hover, #access-lastmod a:hover, footer a:hover {
+  color: var(--link-color-hover) !important;
+  }
+#page-category a:hover, #page-tag a:hover, .post-tail-wrapper .license-wrapper > a:hover, #search-results a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, #access-lastmod a:hover, footer a:hover {
+  border-bottom: 1px solid var(--link-color-hover) !important;
+  }
+.post-tags .post-tag:hover, .tag:hover {
+  background-color: hsla(10, 100%, 50%, 0.02)
   }
 
-#topbar-title {
-  color: var(--menu-title-color);
-  text-shadow: 1px 1px 2px var(--shadow-blueish);
-}*/
-
-
+  .tag {
+    padding-bottom: 5px;
+  }
+/*
+ *     M A T H J A X     ------------------------------------------------------
+ */
 
 /** MathJax styles and fixes **/
 /* Make font size smaller on small viewports */
@@ -354,4 +553,6 @@ mjx-mtext { font-size: 65%; }
 
 
 
-/** Special post styles **/
+/*
+ *      S P E C I A L   P O S T   S T Y L E S     -----------------------------
+ */
