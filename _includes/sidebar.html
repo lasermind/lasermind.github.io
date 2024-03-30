@@ -85,11 +85,31 @@
           {% assign url = entry.url %}
       {% endcase %}
 
+
+
+        {% case entry.type %}
+          {% when 'github' %}
+            {% assign tooltip = "Github" %}
+          {% when 'twitter' %}
+            {% assign tooltip = "TwiX" %}
+          {% when 'youtube' %}
+            {% assign tooltip = "Youtube" %}
+          {% when 'wavlake' %}
+            {% assign tooltip = "Wavlake" %}
+          {% when 'rss' %}
+            {% assign tooltip = "RSS" %}
+          {% else %}
+            {% assign tooltip = "Check it out!" %}
+        {% endcase %}
+
       {% if url %}
         <a
           href="{{ url }}"
           aria-label="{{ entry.type }}"
           {% assign link_types = '' %}
+          data-bs-toggle="tooltip"
+          data-placement="top"
+          data-bs-original-title="{{ tooltip }}"
 
           {% unless entry.noblank %}
             target="_blank"

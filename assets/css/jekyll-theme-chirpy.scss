@@ -90,7 +90,7 @@ html[data-mode="dark"] {
 #sidebar #avatar {
   width:  8rem;
   height: 8rem;
-  margin: auto;
+  margin-left: 2.5rem;
   background-image: url("/assets/img/larrylasermind-avatar-blue.jpg");
   background-size: cover;
   transition: all 0.5s ease;
@@ -256,12 +256,11 @@ html[data-mode="dark"] {
   }
 #sidebar .sidebar-bottom a {
   margin-bottom: 1rem;
-  margin-right: 0.75rem;
   box-shadow: 1px 1.5px 1px 0px var(--shadow-blueish-soft);
   color: var(--shadow-blueish);
   }
 #sidebar .sidebar-bottom a:not(:last-child) {
-  margin-right: 0.75rem;
+  margin-right: 0.74rem;
   }
 #sidebar .sidebar-bottom a i {
   opacity: 0.9;
@@ -293,12 +292,26 @@ html[data-mode="dark"] {
   #sidebar .sidebar-bottom a {
     color: unset;
     }
+  #sidebar .sidebar-bottom a i {
+    transition: all 0.6s ease;
+    }
+    /*
+  #sidebar .sidebar-bottom a:hover i,
+  #sidebar .sidebar-bottom a:focus i {
+    filter: brightness(100);
+    transition: all 0.2s ease;
+    }
+    */
   #sidebar .sidebar-bottom a i.icon-wavlake {
     filter: invert(100%) brightness(80%) saturate(0%);
     }
-    #sidebar .sidebar-bottom a:hover i.icon-wavlake {
-      opacity: 0.8;
+    /*
+  #sidebar .sidebar-bottom a:hover i.icon-wavlake,
+  #sidebar .sidebar-bottom a:focus i.icon-wavlake {
+      filter: invert(100%) brightness(80%) saturate(0%) brightness(100);
+      transition: all 0.2s ease;
     }
+    */
 }
 
 
