@@ -9,6 +9,7 @@ categories: [helloworld]
 tags: [helloworld]
 img_path: /assets/img/
 math: true
+exclude: false
 ---
 
 
