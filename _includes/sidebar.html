@@ -7,8 +7,16 @@
   </button>
 
   {% unless site.theme_mode %}
+<!--
     <button type="button" class="mode-toggle btn" aria-label="Switch Mode">
       <i class="fas fa-adjust"></i>
+    </button>
+-->
+
+    <button id="mode-toggle" type="button" aria-label="Switch Mode" class="mode-toggle fa-fw fas" data-bs-toggle="tooltip" data-placement="top" data-bs-original-title="Dark Mode">
+      <div class="mode-switch"></div>
+      <div class="mode-moon fa-fw fas"></div>
+      <div class="mode-sun fa-fw fas"></div>
     </button>
 
 

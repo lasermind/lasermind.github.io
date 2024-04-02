@@ -9,6 +9,10 @@
 :root {
   --menu-gradient-light: hsla(211, 45%, 72%, 1); /* ≈#97b7d7 */
   --menu-gradient-dark:  hsla(215, 49%, 58%, 1); /* ≈#5d92c7 */
+  --topbar-gradient-dark:  hsla(215, 44%, 56%, 1);
+  --topbar-gradient-light: hsla(215, 47%, 62%, 1);
+  --3rdpanel-gradient-light: hsla(215, 47%, 62%, 1);
+  --3rdpanel-gradient-dark:  hsla(215, 44%, 56%, 1);
   --menu-title-color: hsla(215, 100%, 99%, 1);
   --menu-title-color-dark: hsla(0, 0%, 85%, 1);
   --shadow-blueish: hsla(215,100%,5%,0.9);
@@ -50,20 +54,65 @@
   left: 0px;
   right: 0px;
   z-index: 99;
+  background-color: var(--sidebar-bg);
   }
 @media (min-width: 849px) {
   #topbar-wrapper {
     /*position: static;*/
     left: var(--sidebar-width);
+    background-color: unset;
+    background-image: unset;
     }
 }
+
+/* Fix font for mobile title bar */
+#topbar-title {
+  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif;
+  font-weight: 700;
+  cursor: default;
+  }
+/* Style topbar font color */
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]), html[data-mode="light"] {
+
+    #topbar-wrapper {
+      background-image: linear-gradient(to right, var(--topbar-gradient-dark), var(--topbar-gradient-light));
+      }
+    .input-focus #search-input {
+      /*background: white !important;*/
+      border-color: transparent !important;
+      }
+    @media (min-width: 849px) {
+      #topbar-wrapper {
+        background-color: var(--body-lightcreme);
+        background-image: unset;
+        }
+      }
+    #topbar-wrapper .input-focus {
+      background: white !important;
+      border-color: var(--search-border-color) !important;
+      }
+    #topbar-title {
+      color: var(--menu-title-color);
+      text-shadow: 1px 1px 2px var(--shadow-blueish),0px 0px 9px rgba(255,255,255,.5);
+      }
+    #topbar button i,
+    #search-cancel {
+      color: var(--menu-title-color);
+      text-shadow: 1px 1px 2px var(--shadow-blueish);
+      }
+    }
+}
+
 /* Since topbar is now fixed, add space before main content */
 #topbar-wrapper + div.row,
 #search-result-wrapper {
   margin-top: 3rem; /* Size of topbar */
 }
-#search-result-wrapper {
-  margin-left: 1.25rem;
+@media (min-width: 849px) {
+  #search-result-wrapper {
+    padding-left: 1.25rem;
+  }
 }
 /* Topbar shadow */
 #topbar-wrapper {
@@ -101,6 +150,13 @@
 
 
 /* Search field tweaks */
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]), html[data-mode="light"] {
+    search {
+      background-color: white !important;
+      }
+    }
+}
 @media (min-width: 850px) {
   search {
     margin-right: 2.25rem;
@@ -131,12 +187,6 @@
     }
 }
 
-/* Fix font for mobile title bar */
-#topbar-title {
-  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif;
-  font-weight: 700;
-  cursor: default;
-  }
 
 
 /*
@@ -156,6 +206,121 @@
  *     S I D E B A R     ------------------------------------------------------
  */
 
+
+/* New dark mode switch */
+#mode-toggle {
+  border: 1px solid hsla(0, 100%, 100%, 0.1);
+  /*margin-top: calc( (3rem - 1rem * var(--bs-btn-line-height)) / 4 - 2px);*/
+  margin-top: 0.9rem;
+  margin-right: 1rem;
+  line-height: 1;
+  /*padding: 4px 4px 5px 4px;*/
+  width: calc( 16px * 2.5 );
+  height: calc(16px * 1.33 );
+  background: none;
+  border-radius: 1rem;
+  box-shadow: 1px 2px 4px -2px black inset;
+  position: absolute;
+
+}
+
+#mode-toggle .mode-switch,
+#mode-toggle .mode-moon,
+#mode-toggle .mode-sun {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  line-height: 1;
+  top: 2px;
+  }
+
+#mode-toggle .mode-switch {
+  border-radius: 0.6rem;
+  /*border: 1px solid rgba(255,255,255,0);*/
+  /*background-color: var(--body-lightcreme);*/
+  background-color: hsla(50, 20%, 95%, 1);
+  z-index: 21;
+  left: 3px;
+  transform: rotate(0deg);
+  transition: all 0.3s cubic-bezier(.39,.58,.57,1);
+  box-shadow:  1.0px  1.0px 1.0px 0.5px rgba(255,255,255,1) inset,
+              -0.5px -0.5px 1.0px 0.5px rgba(0,0,20,0.4) inset,
+               0.2px  0.4px 1.5px 0.0px rgba(0,0,20,0.5);
+}
+
+#mode-toggle .mode-switch:before {
+  content: "\f186"; /* moon icon */
+  font-size: 60%;
+  line-height: 1;
+  top: 3.4px;
+  left: 2px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  color: hsla(0, 100%, 100%, 0);
+  transition: all 0.2s cubic-bezier(.39,.58,.57,1);
+}
+
+#mode-toggle .mode-moon,
+#mode-toggle .mode-sun {
+  font-size: 70%;
+  line-height: 1.4;
+  margin: 0 0px;
+  opacity: 1;
+}
+
+#mode-toggle .mode-moon {
+  right: 0;
+  z-index: 20;
+  margin-right: 2.5px;
+}
+#mode-toggle .mode-moon:before {
+  content: "\f186";
+  color: var(--shadow-blueish);
+}
+
+#mode-toggle .mode-sun {
+  left: 0;
+  z-index: 20;
+  margin-left: 2.5px;
+}
+#mode-toggle .mode-sun:before {
+  content: "\f185";
+  color: hsla(215, 10%, 60%, 0.2);
+  transition: all .3s ease;
+}
+
+
+
+html[data-mode="dark"] {
+  #mode-toggle .mode-switch {
+    /*right: 3px;*/
+    z-index: 21;
+    left: unset;
+    transform: translateX(110%) rotate(-360deg);
+    background-color: hsla(213, 25%, 50%, 1);
+    /*border-color: rgba(255,255,255,0.05);*/
+    transition: all 0.3s cubic-bezier(.39,.58,.57,1);
+    box-shadow:  -0.5px  -0.5px 0.5px 0px rgba(255,255,255,0.2) inset,
+                0.5px 0.5px 0.5px 0.5px rgba(0,0,20,0.3) inset,
+                 0.2px  0.4px 1.5px 0.0px rgba(0,0,20,0.5);
+    }
+
+  #mode-toggle .mode-switch:before {
+    content: "\f186"; /* moon icon */
+    /*left: unset;*/
+    right: 3.5px;
+    top: 3.5px;
+    color: hsla(0, 100%, 100%, 1);
+    text-shadow: 0.5px 0.5px rgba(0,0,20,0.6);
+    transition: all 0.2s cubic-bezier(.39,.58,.57,1);
+    }
+    #mode-toggle .mode-sun:before {
+      transition: all .3s ease;
+    }
+}
+
+
 /* Give blue gradient background in light mode */
 #sidebar {
   background-image: linear-gradient(to right, var(--menu-gradient-light), var(--menu-gradient-dark));
@@ -166,12 +331,10 @@ html[data-mode="dark"] #sidebar { background-image: none; }
 
 /* Fix margin, causing unwanted transition effect */
 #sidebar .profile-wrapper {
-  margin-top: 1em;
+  margin-top: 4.5em;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   }
-
-
 
 /* Mobile menu style fix */
 @media (max-width: 849px) {
@@ -456,11 +619,35 @@ html[data-mode="dark"] {
 
 
 /*
+ *     MAIN     ---------------------------------------------------------------
+ */
+
+/* Fix padding of main section */
+ @media (min-width: 768px) {
+   .px-md-4 { padding-right: 4.5rem !important; }
+ }
+ @media (min-width: 1650px) {
+   main.col-12 { padding-right: 10.5rem !important; }
+ }
+
+
+
+
+
+/*
  *     3rd  S I D E  P A N E L     --------------------------------------------
  */
 
-
-
+ @media (prefers-color-scheme: light) {
+   html:not([data-mode]), html[data-mode="light"] {
+    #panel-wrapper {
+      /*background-image: linear-gradient(to right, var(--3rdpanel-gradient-dark), var(--3rdpanel-gradient-light));*/
+      /*background-image: linear-gradient( to right, hsl(216, 90%, 90%) 0%, hsl(216, 90%, 95%) 30%, hsl(216, 90%, 95%) 60%, transparent 100%);*/
+      /*ackground-image: radial-gradient( circle, hsl(216, 90%, 90%) 0%, hsl(216, 90%, 95%) 30%, hsl(216, 90%, 95%) 60%, transparent 100%);*/
+      background-image: radial-gradient( farthest-side at 0% 50%, hsl(213, 93%, 94%) 10%, hsl(216, 90%, 96%) 30%, hsl(217, 90%, 96%) 60%, transparent 95%);
+      }
+  }
+}
 
 
 
