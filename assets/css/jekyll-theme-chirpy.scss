@@ -9,8 +9,10 @@
 :root {
   --menu-gradient-light: hsla(211, 45%, 72%, 1); /* ≈#97b7d7 */
   --menu-gradient-dark:  hsla(215, 49%, 58%, 1); /* ≈#5d92c7 */
-  --topbar-gradient-dark:  hsla(215, 44%, 56%, 1);
-  --topbar-gradient-light: hsla(215, 47%, 62%, 1);
+  /*--topbar-gradient-dark:  hsla(215, 44%, 56%, 1);
+  --topbar-gradient-light: hsla(215, 47%, 62%, 1);*/
+  --topbar-gradient-dark:  hsla(215, 42%, 54%, 1);
+  --topbar-gradient-light: hsla(213, 48%, 64%, 1);
   --3rdpanel-gradient-light: hsla(215, 47%, 62%, 1);
   --3rdpanel-gradient-dark:  hsla(215, 44%, 56%, 1);
   --menu-title-color: hsla(215, 100%, 99%, 1);
@@ -50,15 +52,18 @@
 
 /* Topbar fixed on mobile */
 #topbar-wrapper {
-  position: fixed;
+  position: sticky; /* On mobile size: use 'sticky' */
   left: 0px;
   right: 0px;
-  z-index: 99;
+  top:0px;
+  z-index: 98;
   background-color: var(--main-bg);
+
   }
 @media (min-width: 849px) {
   #topbar-wrapper {
     left: var(--sidebar-width);
+    position: fixed; /* On desktop size: use 'fixed' */
     }
 }
 
@@ -73,7 +78,7 @@
   html:not([data-mode]), html[data-mode="light"] {
 
     #topbar-wrapper {
-      background-image: linear-gradient(to right, var(--topbar-gradient-dark), var(--topbar-gradient-light));
+      background-image: linear-gradient(170deg, var(--topbar-gradient-dark), var(--topbar-gradient-light));
       }
     .input-focus #search-input {
       /*background: white !important;*/
@@ -114,6 +119,7 @@
 /* Topbar shadow */
 #topbar-wrapper {
   box-shadow: 0px 10px 12px -17px var(--shadow-blueish);
+
   }
 /* Breadcrumbs tweaks */
 #topbar #breadcrumb {
@@ -212,23 +218,24 @@
   margin-right: 1rem;
   line-height: 1;
   /*padding: 4px 4px 5px 4px;*/
-  width: calc( 16px * 2.5 );
-  height: calc(16px * 1.33 );
+  width: 2.6rem;
+  height: calc( 1rem + 0.3rem );
   background: none;
   border-radius: 1rem;
   box-shadow: 1px 2px 4px -2px black inset;
   position: absolute;
-
+  opacity: 1;
+  transition: opacity
 }
 
 #mode-toggle .mode-switch,
 #mode-toggle .mode-moon,
 #mode-toggle .mode-sun {
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 1rem;
+  height: 1rem;
   line-height: 1;
-  top: 2px;
+  top: 0.15rem;
   }
 
 #mode-toggle .mode-switch {
@@ -237,20 +244,20 @@
   /*background-color: var(--body-lightcreme);*/
   background-color: hsla(50, 20%, 95%, 1);
   z-index: 21;
-  left: 3px;
-  transform: rotate(0deg);
+  left: 0.125rem;
+  top: 0.11rem;
   transition: all 0.2s cubic-bezier(.39,.58,.57,1);
-  box-shadow:  1.0px  1.0px 1.0px 0.5px rgba(255,255,255,1) inset,
-              -0.5px -0.5px 1.0px 0.5px rgba(0,0,20,0.4) inset,
-               0.2px  0.4px 1.5px 0.0px rgba(0,0,20,0.5);
+  box-shadow: -0.5px -0.5px 1.0px 0.0px rgba(0,0,20,0.4) inset,
+               1.0px  1.0px 1.0px 0.5px rgba(255,255,255,1) inset,
+               0.2px  0.4px 1.5px 0.0px rgba(0,0,20,0.3);
 }
 
 #mode-toggle .mode-switch:before {
   content: "\f186"; /* moon icon */
   font-size: 60%;
   line-height: 1;
-  top: 3.4px;
-  left: 2px;
+  top: 0.2rem;
+  left: 0.25rem;
   margin: 0;
   padding: 0;
   position: absolute;
@@ -261,8 +268,9 @@
 #mode-toggle .mode-moon,
 #mode-toggle .mode-sun {
   font-size: 70%;
-  line-height: 1.4;
-  margin: 0 0px;
+  line-height: 1;
+  margin: 0;
+  margin-top: 0.1rem;
   opacity: 1;
 }
 
@@ -291,23 +299,22 @@
 
 html[data-mode="dark"] {
   #mode-toggle .mode-switch {
-    /*right: 3px;*/
     z-index: 21;
-    left: unset;
-    transform: translateX(110%) rotate(-360deg);
-    background-color: hsla(213, 25%, 50%, 1);
-    /*border-color: rgba(255,255,255,0.05);*/
+    left: 0.38rem;
+    top: 0.115rem;
+    transform: translateX(100%);
+    background-color: hsla(213, 37%, 46%, 1);
     transition: all 0.2s cubic-bezier(.39,.58,.57,1);
-    box-shadow:  -0.5px  -0.5px 0.5px 0px rgba(255,255,255,0.2) inset,
-                0.5px 0.5px 0.5px 0.5px rgba(0,0,20,0.3) inset,
-                 0.2px  0.4px 1.5px 0.0px rgba(0,0,20,0.5);
+    box-shadow: -0.5px -0.5px 0.5px 0.25px rgba(255,255,255,0.2) inset,
+                 0.5px  0.5px 1.0px 0.0px  rgba(0,0,20,0.4) inset,
+                 0.2px  0.4px 1.5px 0.0px  rgba(0,0,20,0.3);
     }
 
   #mode-toggle .mode-switch:before {
     content: "\f186"; /* moon icon */
     /*left: unset;*/
-    right: 3.5px;
-    top: 3.5px;
+    /*right: 3.5px;*/
+    /*top: 3.5px;*/
     color: hsla(0, 100%, 100%, 1);
     text-shadow: 0.5px 0.5px rgba(0,0,20,0.6);
     transition: all 0.2s cubic-bezier(.39,.58,.57,1);
@@ -320,7 +327,7 @@ html[data-mode="dark"] {
 
 /* Give blue gradient background in light mode */
 #sidebar {
-  background-image: linear-gradient(to right, var(--menu-gradient-light), var(--menu-gradient-dark));
+  background-image: linear-gradient(92deg, var(--menu-gradient-light), var(--menu-gradient-dark) 95%);
   border-right: 0px solid hsla(215, 50%, 50%, 1);
   }
 /* No special background in dark mode */
@@ -337,14 +344,24 @@ html[data-mode="dark"] #sidebar { background-image: none; }
 @media (max-width: 849px) {
   /* Prepare transition effects */
   #main-wrapper {
-    transition: transform .3s ease, filter 0.2s ease, opacity 0.2s ease;
+    transition: filter 0.2s ease, opacity 0.2s ease;
     }
   /* Change sidebar/mobile menu slide-in effect */
   [sidebar-display] #main-wrapper {
     transform: translateX(0px);
-    filter: blur(5px) saturate(30%);
-    transition: transform .3s ease, filter 4s ease-in, opacity 6s ease;
+    filter: saturate(30%);
+    transition: filter 4s ease-in, opacity 6s ease;
     opacity: 0.65;
+    }
+  [sidebar-display] main {
+    filter: blur(5px) saturate(30%);
+    transition: all 4s ease-in;
+    }
+  [sidebar-display] #topbar-wrapper {
+    }
+  [sidebar-display] #topbar {
+    filter: blur(2px) saturate(25%);
+    transition: all 4s ease-in;
     }
   /* Give shadow to sidebar, overcasting blurred main section */
   [sidebar-display] #sidebar {
@@ -394,7 +411,7 @@ html[data-mode="dark"] {
   background-size: cover;
   transition: all 0.5s ease;
   box-shadow: 2px 3px 10px rgba(0,0,20,0.5),
-              -4px -4px 24px rgba(255,255,255,0.4);
+              -3px -3px 24px rgba(255,255,255,0.4);
   }
 /* Avatar: don't use <img> tag, but CSS background property */
 #sidebar #avatar img { display: none; }
@@ -665,16 +682,13 @@ footer {
 }
 
 
-
-/*
- *     M I S C     ------------------------------------------------------------
- */
-
 /* Tame back to top button */
 #back-to-top {
   left: calc( 50% - (2.75rem / 2) );
   bottom: 3rem;
   position: absolute;
+  border-color: transparent !important;
+  border-image-width: 0 !important;;
 }
 
 @media (min-width: 850px) {
@@ -682,6 +696,7 @@ footer {
     display: none !important;
     }
 }
+
 @media (prefers-color-scheme: light) {
   html:not([data-mode]), html[data-mode="light"] {
     #back-to-top {
@@ -701,6 +716,12 @@ footer {
       text-shadow: 1px 1px 2px var(--shadow-blueish);
     }
 }}
+
+
+/*
+ *     M I S C     ------------------------------------------------------------
+ */
+
 
 /* Fix post list's preview image width */
 @media (min-width: 768px) {
@@ -725,16 +746,12 @@ footer {
     -webkit-line-clamp: 3;
     }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1350px) {
   #post-list .card .card-body .card-text.content p {
     -webkit-line-clamp: 4;
     }
 }
-@media (min-width: 1550px) {
-  #post-list .card .card-body .card-text.content p {
-    -webkit-line-clamp: 5;
-    }
-}
+
 @media (prefers-color-scheme: light) {
   html:not([data-mode]), html[data-mode="light"] {
   --card-hovor-bg: white;
@@ -756,6 +773,13 @@ footer {
 #page-category a:hover, #page-tag a:hover, .post-tail-wrapper .license-wrapper > a:hover, #search-results a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, #access-lastmod a:hover, footer a:hover {
   border-bottom: 1px solid var(--link-color-hover) !important;
   }
+.content a:not(.img-link) {
+  border-bottom: none;
+ }
+ .content a:not(.img-link):hover {
+   border-bottom: none;
+  }
+
 .post-tags .post-tag:hover, .tag:hover {
   background-color: hsla(10, 100%, 50%, 0.02)
   }
@@ -764,8 +788,18 @@ footer {
     padding-bottom: 5px;
   }
 
-
-
+  @media (prefers-color-scheme: light) {
+    html:not([data-mode]), html[data-mode="light"] {
+      /* Search: search hint pills */
+      #search-hints .post-tag {
+        border: 1px solid rgba(0,0,20, 0.07);
+        }
+      #search-hints .post-tag:hover {
+        background-color: rgba(255,43,0,.02);
+        color: var(--link-color-hover) !important;
+        border-color: rgba(0,0,20, 0.15) !important;
+        }
+}}
 
 
 /*
