@@ -9,21 +9,23 @@
 :root {
   /*--menu-gradient-light: hsla(211, 45%, 72%, 1); /* ≈#97b7d7 */
   /*--menu-gradient-dark:  hsla(215, 49%, 58%, 1);/* /* ≈#5d92c7 */
-  --sidebar-gradient-shade: hsla(214, 51%, 48%, 1);
-  --sidebar-gradient-dark:  hsla(215, 50%, 58%, 1);
+  --sidebar-gradient-shade: hsla(214, 48%, 47%, 1);
+  --sidebar-gradient-dark:  hsla(215, 47%, 58%, 1);
   --sidebar-gradient-light: hsla(214, 60%, 70%, 1);
   /*--topbar-gradient-dark:  hsla(215, 44%, 56%, 1);
   --topbar-gradient-light: hsla(215, 47%, 62%, 1);*/
-  --topbar-gradient-shade: hsla(214, 54%, 50%, 1);
+  --topbar-gradient-shade: hsla(213, 54%, 48%, 1);
   --topbar-gradient-dark:  hsla(215, 56%, 60%, 1);
   --topbar-gradient-light: hsla(214, 63%, 70%, 1);
   --3rdpanel-gradient-light: hsla(215, 47%, 62%, 1);
   --3rdpanel-gradient-dark:  hsla(215, 44%, 56%, 1);
+
   --menu-title-color: hsla(215, 100%, 99%, 1);
   --menu-title-color-dark: hsla(0, 0%, 85%, 1);
   --shadow-blueish: hsla(215,100%,5%,0.9);
   --shadow-blueish-soft: hsla(215,100%,5%,0.3);
   --menu-subtitle-color: hsla(212, 50%, 33%, 1);
+
   --sidebar-muted-color: white !important;
   --sidebar-muted-color-dark: hsla(15,100%, 95%, 0.45);
   --sidebar-active-color-dark: hsla(15,100%, 100%, 0.85);
@@ -37,15 +39,26 @@
   --link-color-hover: hsla(0, 70%, 50%, 1);
 
   --sidebar-width: 260px;
+
+  --main-bg: var(--body-lightcreme);
+  --topbar-bg: var(--main-bg);
+
+
 }
-
-
+/* Hacky background hacks for older browsers */
 @media (prefers-color-scheme: light) {
-  html:not([data-mode]), html[data-mode="light"] {
-    --main-bg: var(--body-lightcreme);
-    --topbar-bg: var(--main-bg);
+html:not([data-mode]), html[data-mode="light"] {
+    --main-bg: var(--body-lightcreme) !important;
+    --topbar-bg: var(--main-bg) !important;
+}}
+html[data-mode="dark"] {
+  :root {
+    --main-bg: var(--main-bg) !important;
+    --topbar-bg: var(--topbar-bg) !important;
     }
 }
+
+
 
 
 
@@ -61,9 +74,7 @@
   right: 0px;
   top:0px;
   z-index: 98;
-  background-color: var(--main-bg);
-
-  }
+    }
 @media (min-width: 849px) {
   #topbar-wrapper {
     left: var(--sidebar-width);
@@ -77,37 +88,48 @@
   font-weight: 700;
   cursor: default;
   }
-/* Style topbar font color */
-@media (prefers-color-scheme: light) {
-  html:not([data-mode]), html[data-mode="light"] {
 
-    #topbar-wrapper {
-      background-image: linear-gradient(165deg, var(--topbar-gradient-shade) -5%, var(--topbar-gradient-dark) 35%, var(--topbar-gradient-light) 100%);
-      }
-    .input-focus #search-input {
-      /*background: white !important;*/
-      border-color: transparent !important;
-      }
-    @media (min-width: 849px) {
-      #topbar-wrapper {
-        background-color: var(--body-lightcreme);
-        background-image: unset;
-        }
-      }
-    #topbar-wrapper .input-focus {
-      background: white !important;
-      border-color: var(--search-border-color) !important;
-      }
-    #topbar-title {
-      color: var(--menu-title-color);
-      text-shadow: 1px 1px 2px var(--shadow-blueish),0px 0px 9px rgba(255,255,255,.5);
-      }
+/* Style topbar colors */
+#topbar-wrapper {
+  background-color: var(--topbar-gradient-dark);
+  background-image: linear-gradient(165deg, var(--topbar-gradient-shade) -5%, var(--topbar-gradient-dark) 35%, var(--topbar-gradient-light) 100%);
+  }
+.input-focus #search-input {
+  /*background: white !important;*/
+  border-color: transparent !important;
+  }
+@media (min-width: 849px) {
+  #topbar-wrapper {
+    background-color: var(--body-lightcreme);
+    background-image: unset;
+    }
+  }
+#topbar-wrapper .input-focus {
+  background: white !important;
+  border-color: var(--search-border-color) !important;
+  }
+#topbar-title {
+  color: var(--menu-title-color);
+  text-shadow: 1px 1px 2px var(--shadow-blueish),0px 0px 9px rgba(255,255,255,.5);
+  }
+#topbar button i,
+#search-cancel {
+  color: var(--menu-title-color);
+  text-shadow: 1px 1px 2px var(--shadow-blueish);
+  }
+html[data-mode="dark"] {
+  #topbar-wrapper {
+    background-color: var(--main-bg);
+    background-image: unset;
+    }
+  #topbar-wrapper .input-focus {
+    background: unset !important;
+    }
+    #topbar-title,
     #topbar button i,
     #search-cancel {
-      color: var(--menu-title-color);
-      text-shadow: 1px 1px 2px var(--shadow-blueish);
+      color: var(--menu-title-color-dark);
       }
-    }
 }
 
 /* Since topbar is now fixed, add space before main content */
@@ -157,13 +179,16 @@
 
 
 /* Search field tweaks */
-@media (prefers-color-scheme: light) {
-  html:not([data-mode]), html[data-mode="light"] {
-    search {
-      background-color: white !important;
-      }
+search {
+  background-color: white !important;
+  }
+html[data-mode="dark"] {
+  search {
+    background-color: unset !important;
     }
 }
+
+
 @media (min-width: 850px) {
   search {
     margin-right: 2.25rem;
@@ -196,16 +221,6 @@
 
 
 
-/*
-#topbar-wrapper {
-  background-image: linear-gradient(to right, #97b7d7, #5d92c7);
-  }
-
-#topbar-title {
-  color: var(--menu-title-color);
-  text-shadow: 1px 1px 2px var(--shadow-blueish);
-}*/
-
 
 
 
@@ -229,8 +244,15 @@
   box-shadow: 1px 2px 4px -2px black inset;
   position: absolute;
   opacity: 1;
-  transition: opacity
+  transition: opacity;
+  display: none; /* Hidden when browser doesn't support */
 }
+/* Display toggle when browser does support */
+@media (prefers-color-scheme: light) {
+  #mode-toggle { display: block; }   }
+  @media (prefers-color-scheme: dark) {
+    #mode-toggle { display: block; }   }
+
 
 #mode-toggle .mode-switch,
 #mode-toggle .mode-moon,
@@ -332,7 +354,7 @@ html[data-mode="dark"] {
 /* Give blue gradient background in light mode */
 #sidebar {
   /*background-image: linear-gradient(92deg, var(--menu-gradient-light), var(--menu-gradient-dark) 95%);*/
-  background-image: linear-gradient(-95deg, var(--sidebar-gradient-shade) 0%, var(--sidebar-gradient-dark) 35%, var(--sidebar-gradient-light) 90%);
+  background-image: linear-gradient(-97deg, var(--sidebar-gradient-shade) -3%, var(--sidebar-gradient-dark) 35%, var(--sidebar-gradient-light) 90%);
   border-right: 0px solid hsla(215, 50%, 50%, 1);
   }
 /* No special background in dark mode */
@@ -580,7 +602,13 @@ html[data-mode="dark"] {
   margin-bottom: 1rem;
   box-shadow: 1px 1.5px 1px 0px var(--shadow-blueish-soft);
   color: var(--shadow-blueish);
+  background-color: white;
   }
+html[data-mode="dark"] {
+  #sidebar .sidebar-bottom a {
+    background-color: #232328;
+    }
+}
 #sidebar .sidebar-bottom a:not(:last-child) {
   margin-right: 0.74rem;
   }
@@ -657,17 +685,17 @@ html[data-mode="dark"] {
  *     3rd  S I D E  P A N E L     --------------------------------------------
  */
 
- @media (prefers-color-scheme: light) {
-   html:not([data-mode]), html[data-mode="light"] {
-    #panel-wrapper {
+#panel-wrapper {
       /*background-image: linear-gradient(to right, var(--3rdpanel-gradient-dark), var(--3rdpanel-gradient-light));*/
       /*background-image: linear-gradient( to right, hsl(216, 90%, 90%) 0%, hsl(216, 90%, 95%) 30%, hsl(216, 90%, 95%) 60%, transparent 100%);*/
       /*ackground-image: radial-gradient( circle, hsl(216, 90%, 90%) 0%, hsl(216, 90%, 95%) 30%, hsl(216, 90%, 95%) 60%, transparent 100%);*/
       background-image: radial-gradient( farthest-side at 0% 50%, hsl(213, 93%, 94%) 10%, hsl(216, 90%, 96%) 30%, hsl(217, 90%, 96%) 60%, transparent 95%);
       }
+html[data-mode="dark"] {
+  #panel-wrapper {
+    background-image: unset;
   }
 }
-
 
 
 /*
@@ -687,7 +715,7 @@ footer {
 }
 
 
-/* Tame back to top button */
+/* Tame position of back-to-top button */
 #back-to-top {
   left: calc( 50% - (2.75rem / 2) );
   bottom: 3rem;
@@ -695,33 +723,38 @@ footer {
   border-color: transparent !important;
   border-image-width: 0 !important;;
 }
-
 @media (min-width: 850px) {
   #back-to-top {
     display: none !important;
     }
 }
 
-@media (prefers-color-scheme: light) {
-  html:not([data-mode]), html[data-mode="light"] {
-    #back-to-top {
-      background-color: hsla(215, 50%, 80%, 1);
-      background-image: linear-gradient(to right, var(--topbar-gradient-dark), var(--topbar-gradient-light));
-      border: none;
-      box-shadow: 2px 3px 6px 0px rgba(0,0,20,0.15);
-      transition: all 0.4s ease;
-      }
-    #back-to-top:hover {
-      box-shadow: 1px 5px 8px 0px rgba(0,0,20,0.2);
-      transition: all 0.4s ease;
-      border: none;
-      }
-    #back-to-top i {
-      color: white;
-      text-shadow: 1px 1px 2px var(--shadow-blueish);
-    }
-}}
+/* Style back-to-top button */
+#back-to-top {
+  background-color: hsla(215, 50%, 80%, 1);
+  background-image: linear-gradient(to right, var(--topbar-gradient-dark), var(--topbar-gradient-light));
+  border: none;
+  box-shadow: 2px 3px 6px 0px rgba(0,0,20,0.15);
+  transition: all 0.4s ease;
+  }
+#back-to-top:hover {
+  box-shadow: 1px 5px 8px 0px rgba(0,0,20,0.2);
+  transition: all 0.4s ease;
+  border: none;
+  }
+#back-to-top i {
+  color: white;
+  text-shadow: 1px 1px 2px var(--shadow-blueish);
+}
 
+html[data-mode="dark"] {
+  #back-to-top {
+    background: unset;
+  }
+  #back-to-top i {
+    color: unset;
+  }
+}
 
 /*
  *     M I S C     ------------------------------------------------------------
@@ -757,12 +790,12 @@ footer {
     }
 }
 
-@media (prefers-color-scheme: light) {
-  html:not([data-mode]), html[data-mode="light"] {
+/* Style card preview */
+#post-list .card {
   --card-hovor-bg: white;
   --card-shadow: rgb(104, 104, 104, 0.07) 1px 2px 8px 0px, rgba(211, 209, 209, 0.15) 0 0 0 1px;
-  }
 }
+
 
 
 /* Post meta: fix category pills offset */
@@ -793,18 +826,33 @@ footer {
     padding-bottom: 5px;
   }
 
-  @media (prefers-color-scheme: light) {
-    html:not([data-mode]), html[data-mode="light"] {
-      /* Search: search hint pills */
-      #search-hints .post-tag {
-        border: 1px solid rgba(0,0,20, 0.07);
-        }
-      #search-hints .post-tag:hover {
-        background-color: rgba(255,43,0,.02);
-        color: var(--link-color-hover) !important;
-        border-color: rgba(0,0,20, 0.15) !important;
-        }
-}}
+/* Search: search hint pills */
+#search-hints .post-tag {
+  border: 1px solid rgba(0,0,20, 0.07);
+  }
+#search-hints .post-tag:hover {
+  background-color: rgba(255,43,0,.02);
+  color: var(--link-color-hover) !important;
+  border-color: rgba(0,0,20, 0.15) !important;
+  }
+html[data-mode="dark"] {
+  #search-hints .post-tag:hover {
+    border-color: transparent !important;
+    background-color: var(--search-tag-bg) !important;
+    }
+
+}
+
+
+/* Fix image in frame */
+.content img {
+  object-fit: contain;
+  object-fit: scale-down;
+  height: fit-content;
+  }
+.content a.img-link {
+  height: fit-content;  
+  }
 
 
 /*

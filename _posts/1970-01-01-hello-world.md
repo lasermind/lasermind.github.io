@@ -120,29 +120,29 @@ $$
 | **7**       | 20,917,968.75        | 0.390625          | 82,031.25000000      |
 | **8**       | 20,958,984.375       | 0.1953125         | 41,015.62500000      |
 | **9**       | 20,979,492.1875      | 0.09765625        | 20,507.81250000      |
-| **10**      | 20,989,746.09270     | 0.04882812<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 10,253.90520000      |
-| **11**      | 20,994,873.045300    | 0.02441406<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 5,126.95260000       |
-| **12**      | 20,997,436.5216000   | 0.01220703<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 2,563.47630000       |
-| **13**      | 20,998,718.25870000  | 0.00610351<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 1,281.73710000       |
-| **14**      | 20,999,359.12620000  | 0.00305175<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 640.86750000         |
-| **15**      | 20,999,679.55890000  | 0.00152587<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 320.43270000         |
-| **16**      | 20,999,839.77420000  | 0.00076293<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 160.21530000         |
-| **17**      | 20,999,919.88080000  | 0.00038146<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 80.10660000          |
-| **18**      | 20,999,959.93410000  | 0.00019073<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 40.05330000          |
-| **19**      | 20,999,979.95970000  | 0.00009536<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 20.02560000          |
-| **20**      | 20,999,989.97250000  | 0.00004768<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 10.01280000          |
-| **21**      | 20,999,994.97890000  | 0.00002384<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 5.00640000           |
-| **22**      | 20,999,997.48210000  | 0.00001192<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 2.50320000           |
-| **23**      | 20,999,998.73370000  | 0.00000596<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 1.25160000           |
-| **24**      | 20,999,999.35950000  | 0.00000298<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.62580000           |
-| **25**      | 20,999,999.67240000  | 0.00000149<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.31290000           |
-| **26**      | 20,999,999.82780000  | 0.00000074<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.15540000           |
-| **27**      | 20,999,999.90550000  | 0.00000037<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.07770000           |
-| **28**      | 20,999,999.94330000  | 0.00000018<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.03780000           |
-| **29**      | 20,999,999.96220000  | 0.00000009<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.01890000           |
-| **30**      | 20,999,999.97060000  | 0.00000004<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.00840000           |
-| **31**      | 20,999,999.97480000  | 0.00000002<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.00420000           |
-| **32**      | 20,999,999.97690000  | 0.00000001<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.00210000           |
+| **10**      | 20,989,746.09270     | 0.04882812<span class="truncated" title="Truncated at 8th decical digit"></span>        | 10,253.90520000      |
+| **11**      | 20,994,873.045300    | 0.02441406<span class="truncated" title="Truncated at 8th decical digit"></span>        | 5,126.95260000       |
+| **12**      | 20,997,436.5216000   | 0.01220703<span class="truncated" title="Truncated at 8th decical digit"></span>        | 2,563.47630000       |
+| **13**      | 20,998,718.25870000  | 0.00610351<span class="truncated" title="Truncated at 8th decical digit"></span>        | 1,281.73710000       |
+| **14**      | 20,999,359.12620000  | 0.00305175<span class="truncated" title="Truncated at 8th decical digit"></span>        | 640.86750000         |
+| **15**      | 20,999,679.55890000  | 0.00152587<span class="truncated" title="Truncated at 8th decical digit"></span>        | 320.43270000         |
+| **16**      | 20,999,839.77420000  | 0.00076293<span class="truncated" title="Truncated at 8th decical digit"></span>        | 160.21530000         |
+| **17**      | 20,999,919.88080000  | 0.00038146<span class="truncated" title="Truncated at 8th decical digit"></span>        | 80.10660000          |
+| **18**      | 20,999,959.93410000  | 0.00019073<span class="truncated" title="Truncated at 8th decical digit"></span>        | 40.05330000          |
+| **19**      | 20,999,979.95970000  | 0.00009536<span class="truncated" title="Truncated at 8th decical digit"></span>        | 20.02560000          |
+| **20**      | 20,999,989.97250000  | 0.00004768<span class="truncated" title="Truncated at 8th decical digit"></span>        | 10.01280000          |
+| **21**      | 20,999,994.97890000  | 0.00002384<span class="truncated" title="Truncated at 8th decical digit"></span>        | 5.00640000           |
+| **22**      | 20,999,997.48210000  | 0.00001192<span class="truncated" title="Truncated at 8th decical digit"></span>        | 2.50320000           |
+| **23**      | 20,999,998.73370000  | 0.00000596<span class="truncated" title="Truncated at 8th decical digit"></span>        | 1.25160000           |
+| **24**      | 20,999,999.35950000  | 0.00000298<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.62580000           |
+| **25**      | 20,999,999.67240000  | 0.00000149<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.31290000           |
+| **26**      | 20,999,999.82780000  | 0.00000074<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.15540000           |
+| **27**      | 20,999,999.90550000  | 0.00000037<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.07770000           |
+| **28**      | 20,999,999.94330000  | 0.00000018<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.03780000           |
+| **29**      | 20,999,999.96220000  | 0.00000009<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.01890000           |
+| **30**      | 20,999,999.97060000  | 0.00000004<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.00840000           |
+| **31**      | 20,999,999.97480000  | 0.00000002<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.00420000           |
+| **32**      | 20,999,999.97690000  | 0.00000001<span class="truncated" title="Truncated at 8th decical digit"></span>        | 0.00210000           |
 | **∑**       | <span class="correct"></span>**20,999,999.97690000**  |
 
 
@@ -312,6 +312,9 @@ $$
     font-weight: 300;
     font-size: 70%;
     cursor: help;
+    border-left: 1px dotted hsla(109, 25%, 45%, 1);
+    margin-left: 0.3ex;
+    display: inline-block;
     }
   [data-table-select="correct-amount"] + div table tr span.truncated:after {
     font: var(--fa-font-solid);
