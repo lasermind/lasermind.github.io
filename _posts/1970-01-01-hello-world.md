@@ -3,7 +3,7 @@ title: Hello World !
 tagline: This is my Hello World post
 description: A new website is about to be forged! Therefore here is the first Hello World post, as it's supposed to be. Only for testing purposes, I extend this description with some more nonsense.
 
-image: og-hello-world.jpg
+image: lmdocs-og-helloworld.jpg
 date: 1970-01-01 02:10:00
 categories: [Hello World, Bitcoin, Test]
 tags: [hello-world, test, bitcoin]
@@ -99,7 +99,7 @@ $$
 | **30**      | 20,999,999.99022110  | 0.0000000465661287307739 | 0.00977888703346252  |
 | **31**      | 20,999,999.99511060  | 0.0000000232830643653870 | 0.00488944351673126  |
 | **32**      | 20,999,999.99755530  | 0.0000000116415321826935 | 0.00244472175836563  |
-| **∑**       | <span></span>**20,999,999.99755530**  |
+| **∑**       | <span class="wrong"></span>**20,999,999.99755530**  |
 
 
 
@@ -120,30 +120,30 @@ $$
 | **7**       | 20,917,968.75        | 0.390625          | 82,031.25000000      |
 | **8**       | 20,958,984.375       | 0.1953125         | 41,015.62500000      |
 | **9**       | 20,979,492.1875      | 0.09765625        | 20,507.81250000      |
-| **10**      | 20,989,746.09270     | 0.04882812        | 10,253.90520000      |
-| **11**      | 20,994,873.045300    | 0.02441406        | 5,126.95260000       |
-| **12**      | 20,997,436.5216000   | 0.01220703        | 2,563.47630000       |
-| **13**      | 20,998,718.25870000  | 0.00610351        | 1,281.73710000       |
-| **14**      | 20,999,359.12620000  | 0.00305175        | 640.86750000         |
-| **15**      | 20,999,679.55890000  | 0.00152587        | 320.43270000         |
-| **16**      | 20,999,839.77420000  | 0.00076293        | 160.21530000         |
-| **17**      | 20,999,919.88080000  | 0.00038146        | 80.10660000          |
-| **18**      | 20,999,959.93410000  | 0.00019073        | 40.05330000          |
-| **19**      | 20,999,979.95970000  | 0.00009536        | 20.02560000          |
-| **20**      | 20,999,989.97250000  | 0.00004768        | 10.01280000          |
-| **21**      | 20,999,994.97890000  | 0.00002384        | 5.00640000           |
-| **22**      | 20,999,997.48210000  | 0.00001192        | 2.50320000           |
-| **23**      | 20,999,998.73370000  | 0.00000596        | 1.25160000           |
-| **24**      | 20,999,999.35950000  | 0.00000298        | 0.62580000           |
-| **25**      | 20,999,999.67240000  | 0.00000149        | 0.31290000           |
-| **26**      | 20,999,999.82780000  | 0.00000074        | 0.15540000           |
-| **27**      | 20,999,999.90550000  | 0.00000037        | 0.07770000           |
-| **28**      | 20,999,999.94330000  | 0.00000018        | 0.03780000           |
-| **29**      | 20,999,999.96220000  | 0.00000009        | 0.01890000           |
-| **30**      | 20,999,999.97060000  | 0.00000004        | 0.00840000           |
-| **31**      | 20,999,999.97480000  | 0.00000002        | 0.00420000           |
-| **32**      | 20,999,999.97690000  | 0.00000001        | 0.00210000           |
-| **∑**       | <span></span>**20,999,999.97690000**  |
+| **10**      | 20,989,746.09270     | 0.04882812<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 10,253.90520000      |
+| **11**      | 20,994,873.045300    | 0.02441406<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 5,126.95260000       |
+| **12**      | 20,997,436.5216000   | 0.01220703<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 2,563.47630000       |
+| **13**      | 20,998,718.25870000  | 0.00610351<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 1,281.73710000       |
+| **14**      | 20,999,359.12620000  | 0.00305175<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 640.86750000         |
+| **15**      | 20,999,679.55890000  | 0.00152587<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 320.43270000         |
+| **16**      | 20,999,839.77420000  | 0.00076293<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 160.21530000         |
+| **17**      | 20,999,919.88080000  | 0.00038146<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 80.10660000          |
+| **18**      | 20,999,959.93410000  | 0.00019073<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 40.05330000          |
+| **19**      | 20,999,979.95970000  | 0.00009536<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 20.02560000          |
+| **20**      | 20,999,989.97250000  | 0.00004768<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 10.01280000          |
+| **21**      | 20,999,994.97890000  | 0.00002384<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 5.00640000           |
+| **22**      | 20,999,997.48210000  | 0.00001192<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 2.50320000           |
+| **23**      | 20,999,998.73370000  | 0.00000596<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 1.25160000           |
+| **24**      | 20,999,999.35950000  | 0.00000298<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.62580000           |
+| **25**      | 20,999,999.67240000  | 0.00000149<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.31290000           |
+| **26**      | 20,999,999.82780000  | 0.00000074<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.15540000           |
+| **27**      | 20,999,999.90550000  | 0.00000037<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.07770000           |
+| **28**      | 20,999,999.94330000  | 0.00000018<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.03780000           |
+| **29**      | 20,999,999.96220000  | 0.00000009<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.01890000           |
+| **30**      | 20,999,999.97060000  | 0.00000004<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.00840000           |
+| **31**      | 20,999,999.97480000  | 0.00000002<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.00420000           |
+| **32**      | 20,999,999.97690000  | 0.00000001<span class="truncated" title="Truncated at 8th decical digit">&#x2E3D;</span>        | 0.00210000           |
+| **∑**       | <span class="correct"></span>**20,999,999.97690000**  |
 
 
 ## Prompts
@@ -165,7 +165,7 @@ $$
 
 ### Images
 
-![Study Bitcoin](og-default.jpg "Study Bitcoin")Study Bitcoin
+![Study Bitcoin](lmdocs-og-default.jpg "Study Bitcoin")Study Bitcoin
 
 
 
@@ -282,7 +282,7 @@ $$
     border-top-color: var(--main-bg) !important;
     border-top-width: 1px;
     }
-  [data-table-select="wrong-amount"] + div table tr span:before {
+  [data-table-select="wrong-amount"] + div table tr span.wrong:before {
     content: "\f00d";
     color: var(--prompt-danger-icon-color);
     font: var(--fa-font-solid);
@@ -301,12 +301,26 @@ $$
     border-top-color: var(--main-bg) !important;
     border-top-width: 1px;
     }
-  [data-table-select="correct-amount"] + div table tr span:before {
+  [data-table-select="correct-amount"] + div table tr span.correct:before {
     content: "\f058";
     color: var(--prompt-tip-icon-color);
     font: var(--fa-font-solid);
     margin-right: 1ex;
-  }
-
+    }
+  [data-table-select="correct-amount"] + div table tr span.truncated {
+    color: hsla(109, 25%, 45%, 1);
+    font-weight: 300;
+    font-size: 70%;
+    cursor: help;
+    }
+  [data-table-select="correct-amount"] + div table tr span.truncated:after {
+    font: var(--fa-font-solid);
+    content: "\f0c4";
+    color: hsla(109, 17%, 53%, 1);
+    transform: scale(-1, 1) rotate(-30deg);
+    display: inline-block;
+    font-size: 80%;
+    margin-left: 1px;
+    }
 
 </style>

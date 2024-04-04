@@ -7,19 +7,23 @@
 
 
 :root {
-  --menu-gradient-light: hsla(211, 45%, 72%, 1); /* ≈#97b7d7 */
-  --menu-gradient-dark:  hsla(215, 49%, 58%, 1); /* ≈#5d92c7 */
+  /*--menu-gradient-light: hsla(211, 45%, 72%, 1); /* ≈#97b7d7 */
+  /*--menu-gradient-dark:  hsla(215, 49%, 58%, 1);/* /* ≈#5d92c7 */
+  --sidebar-gradient-shade: hsla(214, 51%, 48%, 1);
+  --sidebar-gradient-dark:  hsla(215, 50%, 58%, 1);
+  --sidebar-gradient-light: hsla(214, 60%, 70%, 1);
   /*--topbar-gradient-dark:  hsla(215, 44%, 56%, 1);
   --topbar-gradient-light: hsla(215, 47%, 62%, 1);*/
-  --topbar-gradient-dark:  hsla(215, 42%, 54%, 1);
-  --topbar-gradient-light: hsla(213, 48%, 64%, 1);
+  --topbar-gradient-shade: hsla(214, 54%, 50%, 1);
+  --topbar-gradient-dark:  hsla(215, 56%, 60%, 1);
+  --topbar-gradient-light: hsla(214, 63%, 70%, 1);
   --3rdpanel-gradient-light: hsla(215, 47%, 62%, 1);
   --3rdpanel-gradient-dark:  hsla(215, 44%, 56%, 1);
   --menu-title-color: hsla(215, 100%, 99%, 1);
   --menu-title-color-dark: hsla(0, 0%, 85%, 1);
   --shadow-blueish: hsla(215,100%,5%,0.9);
   --shadow-blueish-soft: hsla(215,100%,5%,0.3);
-  --menu-subtitle-color: hsla(212, 50%, 40%, 1);
+  --menu-subtitle-color: hsla(212, 50%, 33%, 1);
   --sidebar-muted-color: white !important;
   --sidebar-muted-color-dark: hsla(15,100%, 95%, 0.45);
   --sidebar-active-color-dark: hsla(15,100%, 100%, 0.85);
@@ -78,7 +82,7 @@
   html:not([data-mode]), html[data-mode="light"] {
 
     #topbar-wrapper {
-      background-image: linear-gradient(170deg, var(--topbar-gradient-dark), var(--topbar-gradient-light));
+      background-image: linear-gradient(165deg, var(--topbar-gradient-shade) -5%, var(--topbar-gradient-dark) 35%, var(--topbar-gradient-light) 100%);
       }
     .input-focus #search-input {
       /*background: white !important;*/
@@ -327,7 +331,8 @@ html[data-mode="dark"] {
 
 /* Give blue gradient background in light mode */
 #sidebar {
-  background-image: linear-gradient(92deg, var(--menu-gradient-light), var(--menu-gradient-dark) 95%);
+  /*background-image: linear-gradient(92deg, var(--menu-gradient-light), var(--menu-gradient-dark) 95%);*/
+  background-image: linear-gradient(-95deg, var(--sidebar-gradient-shade) 0%, var(--sidebar-gradient-dark) 35%, var(--sidebar-gradient-light) 90%);
   border-right: 0px solid hsla(215, 50%, 50%, 1);
   }
 /* No special background in dark mode */
