@@ -10,7 +10,9 @@
 
       {% if paths.size == 0 or page.layout == 'home' %}
         <!-- index page -->
-        <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
+        <!-- <span>{{ site.data.locales[include.lang].tabs.home | capitalize }} Main Page</span> -->
+        <span class="lonely-breadcrumb" title="Well, this one it not the message – go on, read below. ↓">Welcome message from Lasermind</span>
+
 
       {% else %}
         {% for item in paths %}
@@ -24,9 +26,9 @@
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
               {% if page.title-sidebar %}
-                <span class="here">{{ site.data.locales[include.lang].tabs[item] | default: page.title-sidebar }}</span>
+                <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title-sidebar }}</span>
               {% else %}
-                <span class="here">{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
+                <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
               {% endif %}
             {% else %}
               <span>{{ page.title }}</span>

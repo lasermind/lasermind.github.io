@@ -42,7 +42,7 @@
   <nav class="flex-column flex-grow-1 w-100 ps-0">
     <ul class="nav">
       <!-- home -->
-      <li class="nav-item{% if page.layout == 'home' or page.layout == 'post' and page.url != '/newcomers-101' %}{{ " active" }}{% endif %}">
+      <li class="nav-item{% if page.layout == 'home' or page.layout == 'post' and page.url != '/newcomers-101/' %}{{ " active" }}{% endif %}">
         <a href="{{ '/' | relative_url }}" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
           <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
@@ -50,6 +50,14 @@
       </li>
       <!-- the real tabs -->
 
+      <!-- Hardcoded Newcomer's 101 page as a menu item -->
+      <!-- Note the exclusion of '/newcomers-101' on active above -->
+      <li class="nav-item{% if '/newcomers-101/' == page.url %}{{ " active" }}{% endif %}">
+        <a href="/newcomers-101/" class="nav-link">
+          <i class="fa-fw fas fa-star"></i>
+          <span>NEWCOMER’S 101</span>
+        </a>
+      </li>
 
 
       {% for tab in site.tabs %}

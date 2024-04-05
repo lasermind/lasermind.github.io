@@ -155,7 +155,7 @@ html[data-mode="dark"] {
   #topbar-wrapper + div.row,
   #search-result-wrapper {
     margin-top: 3rem; /* Size of topbar */
-   }    
+   }
 }
 /* Topbar shadow */
 #topbar-wrapper {
@@ -190,6 +190,10 @@ html[data-mode="dark"] {
   #topbar #breadcrumb {
     padding-left: 1rem;
     }
+}
+.lonely-breadcrumb {
+  color: var(--link-color);
+  cursor: help;
 }
 
 
@@ -724,6 +728,9 @@ html[data-mode="dark"] {
   }
 }
 
+.access {
+  margin-top: 9rem;
+}
 
 /*
  *     F O O T E R     --------------------------------------------------------
@@ -917,6 +924,13 @@ html[data-mode="dark"] {
   }
 .content a.img-link {
   height: fit-content;
+  }
+
+
+  /* Margin for exclamation mark in headlines*/
+  .exclamation-mark {
+    display: inline-block;
+    margin-left: 0.075em
   }
 
 
