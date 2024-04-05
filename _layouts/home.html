@@ -5,6 +5,7 @@ refactor: true
 
 {% include lang.html %}
 
+
 {% assign pinned = site.posts | where: 'pin', 'true' %}
 {% assign default = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
 
@@ -39,6 +40,14 @@ refactor: true
     {% assign posts = posts | push: default[i] %}
   {% endfor %}
 {% endif %}
+
+
+<!-- Hardcoded welcome message -->
+<!-- since this 'Archive' also acts as our home page -->
+<div class="welcome">
+{% include welcome-message.html %}
+</div>
+
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
   {% for post in posts %}

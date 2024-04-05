@@ -1,14 +1,19 @@
 ---
 title: Hello World !
+title-sidebar: Hello
 tagline: This is my Hello World post
 description: A new website is about to be forged! Therefore here is the first Hello World post, as it's supposed to be. Only for testing purposes, I extend this description with some more nonsense.
 
-image: lmdocs-og-helloworld.jpg
 date: 1970-01-01 02:10:00
-categories: [Hello World, Bitcoin, Test]
+image: lmdocs-og-helloworld.jpg
+categories: [Hello World, Test]
 tags: [hello-world, test, bitcoin]
+
 img_path: /assets/img/
 math: true
+
+# Is it a hidden post? exclude: true
+# To-do: make work in Categories, Timeline, Further Reading
 exclude: false
 ---
 

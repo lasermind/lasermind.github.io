@@ -23,7 +23,11 @@
 
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
-              <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
+              {% if page.title-sidebar %}
+                <span class="here">{{ site.data.locales[include.lang].tabs[item] | default: page.title-sidebar }}</span>
+              {% else %}
+                <span class="here">{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
+              {% endif %}
             {% else %}
               <span>{{ page.title }}</span>
             {% endif %}

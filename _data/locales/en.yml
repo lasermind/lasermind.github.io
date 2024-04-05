@@ -3,18 +3,16 @@
 # ----- Commons label -----
 
 layout:
-  post: Post
+  post: "Lasermind’s Documents"
   category: Category
   tag: Tag
 
 # The tabs of sidebar
+# Q: Do we really need this?
 tabs:
   # format: <filename_without_extension>: <value>
-  home: Home
+  home: Archive
   categories: Categories
-  tags: Tags
-  archives: Archives
-  about: About
 
 # the text displayed in the search bar & search results
 search:
