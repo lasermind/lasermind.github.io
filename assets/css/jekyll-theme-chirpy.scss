@@ -1031,11 +1031,11 @@ main article .content h6 ~ p {
 */
 main article .content .tech-o-meter:nth-of-type(1) {
   display: none;
-  margin: 1rem 0rem 2rem 3rem;
+  margin: 0rem 0rem 2rem 3rem;
   }
 
 main article .content .tech-o-meter:nth-of-type(2) {
-  margin: 2rem auto 4rem auto;
+  margin: 1rem auto 4rem auto;
   }
 
 @media (min-width: 500px) {
@@ -1074,11 +1074,11 @@ main article .content .tech-o-meter:nth-of-type(2) {
 
   main article .content .tech-o-meter:nth-of-type(1) {
     display: none;
-    margin: 1rem 0rem 2rem 3rem;
+    margin: 0rem 0rem 2rem 3rem;
     }
 
   main article .content .tech-o-meter:nth-of-type(2) {
-    margin: 2rem auto 4rem auto;
+    margin: 1rem auto 4rem auto;
     }
 
   @media (min-width: 500px) {
@@ -1089,6 +1089,76 @@ main article .content .tech-o-meter:nth-of-type(2) {
 }
 
 
+.tech-o-meter .headline {
+  /*background: yellow;*/
+  width: 100%;
+  text-align: center;
+  font-size: 1.26rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.36rem;
+  position: relative;
+  }
+
+.tech-o-meter .headline:nth-of-type(2)   {
+  margin-top: -1.8rem;
+  /*background: orange;*/
+  width: 100%;
+  line-height: 1.36rem;
+  height: 1.36rem;
+  text-align: right;
+  z-index: 10;
+}
+
+.tech-o-meter .headline label {
+  position: relative;
+  width: 100%;
+  /*background: red;*/
+  /*width: 1em;*/
+  /*height: 1em;*/
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  }
+
+.tech-o-meter .headline label:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  }
+
+.tech-o-meter .headline input {
+  display: none;
+  margin-left: 2em;
+  }
+
+.tech-o-meter .headline .info {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  padding: 0.4rem;
+  background: var(--body-lightcreme);
+  box-shadow: 0px 1px  4px rgba(0, 0, 0, 0.2),
+              0px 0px 40px rgba(0, 0, 0, 0.0) inset;
+  font-family: "Source Sans Pro","Microsoft Yahei",sans-serif;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  }
+.tech-o-meter .headline .info:before {
+  top: 50%;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  border-radius: 100px / 10px;
+  }
+.tech-o-meter .headline .info:after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  }
+
+.tech-o-meter .headline input:checked + .info {
+  color: red;
+  }
 
 .tech-o-meter .scale {
   width: 100%;
@@ -1133,7 +1203,7 @@ main article .content .tech-o-meter:nth-of-type(2) {
                                    ),
           repeating-conic-gradient(from 180deg at 50% 100%, var(--12a) 0deg 0.125deg, var(--12b) 0.25deg 0.375deg, var(--12a) 0.5deg);
 
-  box-shadow: 2px 3px 6px 0px hsla(10, 10%, 10%, 0.5) inset;
+  box-shadow: 2px 3px 9px 0px hsla(10, 10%, 10%, 0.5) inset;
 
 
 
@@ -1261,6 +1331,111 @@ html[data-mode="dark"] {
     --mount-size: 0.75em;
     }
 }
+
+
+/* The Tech-O-Meter modal */
+.tech-o-meter-modal {
+  position: fixed;
+  top: 10vh;
+  right: 6%;
+  bottom: 8%;
+  left: 6%;
+  padding: 1rem 2rem 2rem 2rem;
+  z-index: 100;
+  visibility: hidden;
+  transform: translate(0%, 110vh);
+  transition: all 0.4s ease;
+  border-radius: .5rem;
+  box-shadow: 3px 4px 16px rgba(0,0,20,0.15);
+  background-color: rgb(255 255 255 / 90%);
+
+  }
+html[data-mode="dark"] {
+  .tech-o-meter-modal {
+    background-color: hsla(0, 0%, 15%, 0.95);
+    }
+}
+
+@supports ( backdrop-filter: blur() ) {
+    .tech-o-meter-modal {
+      background-color: rgb(255 255 255 / 40%);
+      backdrop-filter: blur(21px);
+    }
+  html[data-mode="dark"] {
+    .tech-o-meter-modal {
+      background-color: hsla(0, 0%, 15%, 0.6);
+      backdrop-filter: blur(21px);
+      box-shadow: none;
+      }
+  }
+}
+
+@media (max-width: 600px) {
+  .tech-o-meter-modal {
+    top: 3rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 0;
+    }
+}
+@media (min-width: 768px) and (max-width: 849px) {
+  .tech-o-meter-modal {
+    right: 3%;
+    left: 3%;
+    }
+}
+@media (min-width: 850px) {
+  .tech-o-meter-modal {
+    left: 290px;
+    right:30px;
+    }
+}
+
+/* Make it visible with JS by adding class to body */
+.tech-o-meter-modal-show .tech-o-meter-modal {
+  visibility: visible;
+  transition: all 0.3s ease;
+  transform: translate(0%, 0%);
+  }
+
+.tech-o-meter-modal .tech-o-meter-modal-toolbar {
+  /*background: yellow;*/
+  font-size: 1.26rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  }
+.tech-o-meter-modal .tech-o-meter-modal-toolbar:after {
+  content: "";
+  /*background: hsla(0, 0%, 75%, 0.2);*/
+  background-image: radial-gradient( hsla(0, 0%, 70%, 0.7), transparent 60%);
+  /*width: 100%;*/
+  height: 1px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 0.7rem;
+  box-shadow: 0px 2px 5px -2px black;
+  }
+.tech-o-meter-modal .tech-o-meter-modal-toolbar label {
+  margin-right: 0.25rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  right: 1.2rem;
+  top: 1.45rem;
+  }
+.tech-o-meter-modal .tech-o-meter-modal-toolbar label:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  }
+.tech-o-meter-modal .tech-o-meter-modal-toolbar label input {
+  display: none;
+  }
+
+
+
 
 
 /*

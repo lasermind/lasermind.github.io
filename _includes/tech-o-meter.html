@@ -54,6 +54,21 @@
      style="--angle:{{ int-angle }}deg;--level:'{{ int-level }}';"
      >
 
+
+
+  <div class="headline">
+
+    <span> Tech-O-Meter</span>
+  </div>
+
+  <div class="headline">
+     <label class="far fa-circle-question">
+       <input type="button" onclick="openTechOMeterModal();">
+    </label>
+
+
+  </div>
+
   <div class="scale">
     <div class="clipping">
         <div class="cover">
@@ -63,4 +78,19 @@
     <div class="needle" style="--offset:{{ offset }};"></div>
 
     </div> <!-- scale -->
+
+    <div class="tech-o-meter-modal">
+      <div class="tech-o-meter-modal-toolbar">
+        <div>The Tech-O-Meter</div>
+        <label class="fas fa-xmark">
+          <input type="button" onclick="closeTechOMeterModal();">
+       </label>
+
+      </div>
+
+      Tech-O-Meter Modal
+
+    </div>
+
+
 </div>
