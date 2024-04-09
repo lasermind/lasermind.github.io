@@ -992,12 +992,43 @@ main article .content h6 ~ p {
 *     T E C H - O - M E T E R     ---------------------------------------------
 */
 
+
+/* Styles */
+.tech-o-meter {
+--angle: -90deg;  /* Default */
+--level: '0';   /* In case inline style attributes were not set */
+--int-angle: attr(data-angle);
+--int-level: attr(data-level);
+--width: 75vw;
+--ar: 1.925;
+  width: 100%;
+  aspect-ratio: var(--ar)/1;
+  background: transparent;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  shape-outside: margin-box;
+  margin: 2rem auto 2rem auto;
+  float: none;
+  }
+
+
+@media (min-width: 420px) {
+  .tech-o-meter { width: 85%; }
+}
+
+@media (min-width: 500px) {
+  .tech-o-meter {
+    float: right;
+    width: 42%;
+    margin: 0rem 1rem 2rem 3rem;
+    }
+}
+
 /* Appearence:
    (n): centered on mobile, float right on desktop
    (1): float right from intro text on desktop
    (2): centered below intro text on mobile
 */
-
 main article .content .tech-o-meter:nth-of-type(1) {
   display: none;
   margin: 1rem 0rem 2rem 3rem;
@@ -1013,33 +1044,50 @@ main article .content .tech-o-meter:nth-of-type(2) {
 }
 
 
-/* Styles */
-.tech-o-meter {
---angle: -90deg;  /* Default */
---level: '0';   /* In case inline style attributes were not set */
---int-angle: attr(data-angle);
---int-level: attr(data-level);
-  width: 100%;
-  float: none;
-  aspect-ratio: 1.925/1;
-  background: transparent;
-  border: 1px solid transparent;
-  box-sizing: border-box;
-  shape-outside: margin-box;
-  margin: 2rem auto 2rem auto;
+/* Fix older browsers: fallback for aspect-ratio */
+@supports not ( aspect-ratio: 0 ) {
+
+/*  .tech-o-meter:before {
+    content: "no-ar";
+    position: absolute;
+    }
+*/
+  .tech-o-meter {
+    width: var(--width);
+    height: calc( var(--width) / var(--ar) );
+    }
+
+
+  @media (min-width: 500px) {
+    .tech-o-meter {
+      float: right;
+      --width: 42vw;
+      width: var(--width);
+      height: calc( var(--width) / var(--ar) );
+      margin: 0rem 1rem 2rem 3rem;
+      }
   }
 
-@media (min-width: 420px) {
-  .tech-o-meter { width: 85%; }
+  @media (min-width: 850px) {
+    .tech-o-meter { --width: 23vw; }
+  }
+
+  main article .content .tech-o-meter:nth-of-type(1) {
+    display: none;
+    margin: 1rem 0rem 2rem 3rem;
+    }
+
+  main article .content .tech-o-meter:nth-of-type(2) {
+    margin: 2rem auto 4rem auto;
+    }
+
+  @media (min-width: 500px) {
+    main article .content .tech-o-meter:nth-of-type(1) { display: inline; }
+    main article .content .tech-o-meter:nth-of-type(2) { display: none; }
+  }
+
 }
 
-@media (min-width: 500px) {
-  .tech-o-meter {
-    float: right;
-    width: 42%;
-    margin: 0rem 1rem 2rem 3rem;
-    }
-}
 
 
 .tech-o-meter .scale {
