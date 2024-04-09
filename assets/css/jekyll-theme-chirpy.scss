@@ -888,7 +888,8 @@ html[data-mode="dark"] {
 
 /* Big tags on the Category page */
 .tags-in-categories {
-  font-size: 1.92rem;
+  font-size: 2.25rem;
+  font-weight: 400;
 }
 #tags {
   margin: 0 !important;
@@ -932,6 +933,286 @@ html[data-mode="dark"] {
     display: inline-block;
     margin-left: 0.075em
   }
+
+
+/*
+*     New styling of headlines     ---------------------------------------------
+*/
+
+main article h1 {
+  font-size: 2.25rem;
+  }
+main article main h1 {
+  margin-bottom: 0.4rem;
+  }
+
+main article h2, main article h3, main article h4,
+main article h5, main article h6 {
+  font-weight: 600;
+  clear: both;
+  }
+
+main article .mb-3 {
+  margin-bottom: 0.5rem !important;
+  }
+
+/* Selects introductory paragraph of an article, if any */
+/* Make compatible with displaying Tech-O-Meter */
+main article:not(.card) .content > p:first-of-type {
+  font-weight: bold;
+  float: none;
+  text-align: left;
+  }
+@media (min-width: 380px) and (max-width: 500px) {
+  main article:not(.card) .content > p:first-of-type {
+    text-align: justify;
+    }
+}
+@media (min-width: 650px) and (max-width: 849px) {
+  main article:not(.card) .content > p:first-of-type {
+    text-align: justify;
+    }
+}
+@media (min-width: 1100px) {
+  main article:not(.card) .content > p:first-of-type {
+    text-align: justify;
+    }
+}
+
+main article .content h2 ~ p,
+main article .content h3 ~ p,
+main article .content h4 ~ p,
+main article .content h5 ~ p,
+main article .content h6 ~ p {
+  font-weight: normal !important;
+  }
+
+
+/*
+*     T E C H - O - M E T E R     ---------------------------------------------
+*/
+
+/* Appearence:
+   (n): centered on mobile, float right on desktop
+   (1): float right from intro text on desktop
+   (2): centered below intro text on mobile
+*/
+
+main article .content .tech-o-meter:nth-of-type(1) {
+  display: none;
+  margin: 1rem 0rem 2rem 3rem;
+  }
+
+main article .content .tech-o-meter:nth-of-type(2) {
+  margin: 2rem auto 4rem auto;
+  }
+
+@media (min-width: 500px) {
+  main article .content .tech-o-meter:nth-of-type(1) { display: inline; }
+  main article .content .tech-o-meter:nth-of-type(2) { display: none; }
+}
+
+
+/* Styles */
+.tech-o-meter {
+--angle: -90deg;  /* Default */
+--level: '0';   /* In case inline style attributes were not set */
+--int-angle: attr(data-angle);
+--int-level: attr(data-level);
+  width: 100%;
+  float: none;
+  aspect-ratio: 1.925/1;
+  background: transparent;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  shape-outside: margin-box;
+  margin: 2rem auto 2rem auto;
+  }
+
+@media (min-width: 420px) {
+  .tech-o-meter { width: 85%; }
+}
+
+@media (min-width: 500px) {
+  .tech-o-meter {
+    float: right;
+    width: 42%;
+    margin: 0rem 1rem 2rem 3rem;
+    }
+}
+
+
+.tech-o-meter .scale {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 52% 100%;
+  border-top-right-radius: 52% 100%;
+  background: transparent;
+  /* babyblue    */ --0: hsl(215,100%, 85%);
+  /* grassgreen  */ --1: hsl(115, 85%, 40%);
+  /* applegreen  */ --2: hsl( 90, 75%, 60%);
+  /* yellow      */ --3: hsl( 60, 85%, 60%);
+  /* orange      */ --4: hsl( 45, 90%, 55%);
+  /* dark orange */ --5: hsl( 30,100%, 50%);
+  /* signal red  */ --6: hsl(  5,100%, 50%);
+  /* tomato red  */ --7: hsl(  0, 95%, 35%);
+  /* raspberry   */ --8: hsl(335, 85%, 30%);
+  /* deep purple */ --9: hsl(270, 60%, 20%);
+  /* cold black  */--10: hsl(215, 30%, 5%);
+  /* transaorent */--11: transparent;
+  /* light gray  */ --12a: hsl(20, 10%, 20%);
+  /* dark gray   */ --12b: hsl(30, 60%, 5%);
+
+  --slices: 12;
+  --slice-size: calc( (180 / var(--slices) ) * 1deg);
+  --fuzziness: 0.01;
+  --s: var(--slice-size);
+  --f: var(--fuzziness);
+
+  background-image: conic-gradient(from -90deg at 50% 102%,
+                                   var( --0)  0deg  calc(var(--s) * (1 - var(--f))),
+                                   var( --1) calc(var(--s) * (1 + var(--f))) calc(var(--s) * (2 - var(--f))),
+                                   var( --2) calc(var(--s) * (2 + var(--f))) calc(var(--s) * (3 - var(--f))),
+                                   var( --3) calc(var(--s) * (3 + var(--f))) calc(var(--s) * (4 - var(--f))),
+                                   var( --4) calc(var(--s) * (4 + var(--f))) calc(var(--s) * (5 - var(--f))),
+                                   var( --5) calc(var(--s) * (5 + var(--f))) calc(var(--s) * (6 - var(--f))),
+                                   var( --6) calc(var(--s) * (6 + var(--f))) calc(var(--s) * (7 - var(--f))),
+                                   var( --7) calc(var(--s) * (7 + var(--f))) calc(var(--s) * (8 - var(--f))),
+                                   var( --8) calc(var(--s) * (8 + var(--f))) calc(var(--s) * (9 - var(--f))),
+                                   var( --9) calc(var(--s) * (9 + var(--f))) calc(var(--s) *(10 - var(--f))),
+                                   var(--10) calc(var(--s) *(10 + var(--f))) calc(var(--s) *(11 + var(--f)*2)),
+                                   var(--11) calc(var(--s) *(11 + var(--f))) calc(var(--s) *(12 + var(--f)))
+                                   ),
+          repeating-conic-gradient(from 180deg at 50% 100%, var(--12a) 0deg 0.125deg, var(--12b) 0.25deg 0.375deg, var(--12a) 0.5deg);
+
+  box-shadow: 2px 3px 6px 0px hsla(10, 10%, 10%, 0.5) inset;
+
+
+
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  }
+
+.tech-o-meter .clipping {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tech-o-meter .cover {
+--width: 60%;
+  width: var(--width);
+  height: calc( var(--width) * 1.025 );
+  background: var(--body-lightcreme);
+  border-top-left-radius: 52% 100%;
+  border-top-right-radius: 52% 100%;
+  position: absolute;
+  bottom: 0px;
+  left: calc( 50% - (var(--width) / 2) );
+
+  box-shadow: 5px 5px 30px 0px hsla(10, 10%, 10%, 0.6);
+  }
+html[data-mode="dark"] {
+.tech-o-meter .cover {
+  background: var(--main-bg);
+  }
+}
+
+
+.tech-o-meter .brand {
+    text-align: center;
+    top:35%;
+
+    position: relative;
+    /*font-style: italic;*/
+    font-size: clamp(100%, 2vw, 130%);
+    font-weight: 700;
+    color: transparent;
+    background-color: hsl(25, 5%, 50%);
+    text-shadow: 0px 2px 1px rgba(255,250,250,0.7);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    }
+
+.tech-o-meter .needle {
+--width: 1.5%;
+--mount-size: 0.55em;
+--offset: 3;
+  width: var(--width);
+  min-width: 2.5px;
+  height: calc(64% + var(--offset) * 1%);
+  background-color: red;
+  background-image: linear-gradient( calc(155deg - var(--angle) * .35 ), #BBBBCC 5%, #666670 15%, #DDDDEE, #9999AA 55%, #CCCCDD 85%, #777788);
+  position: absolute;
+  bottom: 4%;
+  left: calc( 50% - (var(--width) / 2) );
+  transform-origin: 50% calc( 100% - var(--mount-size) * 1 );
+  transform: rotate( var(--angle) );
+  box-shadow: 2px 3px 5px 0px hsla(0, 10%, 5%, 0.4),
+              0.5px 0.5px 1px 0px hsla(0, 0%, 100%, 0.6) inset,
+              -0.5px -0.5px 1px 0px hsla(0, 0%, 0%, 0.3) inset;
+  }
+
+.tech-o-meter .needle:before {
+--width: 1.3em;
+  content: var(--level);
+  line-height: calc( var(--width) );
+  position: absolute;
+  box-sizing: border-box;
+  width: var(--width);
+  aspect-ratio: 1/1;
+  /*height: var(--width);*/
+  background: white;
+  display: inline-block;
+  top: calc( -1 * var(--width) * 1.4 );
+  left: calc( 50% - (var(--width) / 2) );
+  text-align: center;
+  border-radius: 20%;
+  font-weight: bold;
+  color: black;
+  transform: rotateZ( calc( -1 * var(--angle) ) );
+  box-shadow: 0px 0px 3px 0px hsla(0,   0%,   0%, 0.0) inset,
+              0px 0px 0px 0px hsla(0, 100%, 100%, 0.0) inset,
+              2px 2px 8px 0px hsla(0, 0%, 0%, 0.6);
+  letter-spacing: -0.075em;
+  }
+
+
+.tech-o-meter .needle:after {
+--width: var(--mount-size);
+  content: "·";
+  text-align: center;
+  vertical-align: baseline;
+  color: black;
+  line-height: var(--width);
+  position: absolute;
+  background: red;
+  background-image: linear-gradient( calc(220deg - var(--angle) * -0.4 ), #DDDDEE, #888899 80%, #777788);
+  width: var(--width);
+  aspect-ratio: 1/1;
+  height: var(--width);
+  bottom: calc( var(--width) / 2 );
+  left: calc( 50% - (var(--width) / 2) );
+  border-radius: 50%;
+    box-shadow: 2px 3px 2px 0px hsla(0, 10%, 5%, 0.1),
+                0px 0px 1px 0px hsla(0, 0%, 100%, 0.5) inset,
+                -0.5px -0.5px 1px 0px hsla(0, 0%, 0%, 0.3) inset;
+  }
+
+
+@media (max-width: 400px) {
+  .tech-o-meter .needle {
+    --mount-size: 0.45em;
+    }
+}
+@media (min-width: 600px) {
+  .tech-o-meter .needle {
+    --mount-size: 0.75em;
+    }
+}
 
 
 /*

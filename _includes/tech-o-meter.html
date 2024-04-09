@@ -1,0 +1,66 @@
+
+<!-- The Tech-O-Meter -->
+
+{% assign int-level = include.level %}
+{% assign int-angle = include.angle %}
+
+
+{% if int-level == nil  %}
+  {% assign int-level = 0 %}
+{% endif %}
+
+{% if int-angle == nil  %}
+  {% assign int-angle = -96 %}
+{% endif %}
+
+{% if include.level >= 0 and include.angle == nil %}
+  {% case int-level %}
+    {% when 0 %}
+      {% assign int-angle = -96 %}
+    {% when 1 %}
+      {% assign int-angle = -82 %}
+    {% when 2 %}
+      {% assign int-angle = -65 %}
+    {% when 3 %}
+      {% assign int-angle = -47 %}
+    {% when 4 %}
+      {% assign int-angle = -27 %}
+    {% when 5 %}
+      {% assign int-angle = -9 %}
+    {% when 6 %}
+      {% assign int-angle = 8 %}
+    {% when 7 %}
+      {% assign int-angle = 27 %}
+    {% when 8 %}
+      {% assign int-angle = 45 %}
+    {% when 9 %}
+      {% assign int-angle = 63 %}
+    {% when 10 %}
+      {% assign int-angle = 80 %}
+    {% when 11 %}
+      {% assign int-angle = 100 %}
+    {% else %}
+      {% assign int-angle = -96 %}
+      {% assign int-level = 0 %}
+  {% endcase %}
+
+{% endif%}
+
+{% assign offset = int-angle | abs | divided_by: 10 %}
+
+
+<div class="tech-o-meter"
+     data-angle="{{ int-angle }}" data-level="{{ int-level }}"
+     style="--angle:{{ int-angle }}deg;--level:'{{ int-level }}';"
+     >
+
+  <div class="scale">
+    <div class="clipping">
+        <div class="cover">
+          <div class="brand"></div>
+        </div>
+    </div> <!-- clipping -->
+    <div class="needle" style="--offset:{{ offset }};"></div>
+
+    </div> <!-- scale -->
+</div>
