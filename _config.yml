@@ -16,7 +16,7 @@ timezone: UTC
 
 title: Lasermind’s Documents # the main title
 
-tagline: A collection of tips, tricks and how-to guides all around something something Bitcoin  # it will display as the sub-title
+tagline: A collection of tips, tricks and how-to guides, all around something something Bitcoin  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A collection of tips, tricks and guides all around Bitcoin – assembled by Lasermind.

@@ -3,6 +3,7 @@
 
 @import 'main';
 
+
 /* append your custom style below */
 
 
@@ -257,7 +258,7 @@ html[data-mode="dark"] {
   line-height: 1;
   /*padding: 4px 4px 5px 4px;*/
   width: 2.6rem;
-  height: calc( 1rem + 0.35rem );
+  height: calc( 1rem + 0.35rem + 0.03rem );
   background: none;
   border-radius: 1rem;
   box-shadow: 1px 2px 4px -2px black inset;
