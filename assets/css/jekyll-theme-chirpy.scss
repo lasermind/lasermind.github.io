@@ -1001,16 +1001,50 @@ main article .content h6 ~ p {
 --int-angle: attr(data-angle);
 --int-level: attr(data-level);
 --width: 75vw;
---ar: 1.925;
+--ar: 1.85;
   width: 100%;
   aspect-ratio: var(--ar)/1;
-  background: transparent;
-  border: 1px solid transparent;
+  background: var(--bg);
+  background-image: linear-gradient( -60deg, var(--bg) 10%, var(--body-lightcreme) 20% 50%, var(--bg) 90%);
+  /*border: 1px solid transparent;*/
   box-sizing: border-box;
   shape-outside: margin-box;
   margin: 2rem auto 2rem auto;
+  padding: 0.45rem 0.15rem 1rem 0.15rem;
   float: none;
-  }
+
+  --groove: 1px;
+  border: var(--groove) solid transparent;
+  border-radius: 0.65rem;
+  border-top-color:   hsla(0, 0%, 100%, 1);
+  border-left-color:  hsla(0, 0%, 100%, 1);
+  border-top-width:   var(--groove);
+  border-left-width:  var(--groove);
+
+  border-right-color: hsla(50, 50%, 30%, 0.15);
+  border-bottom-color:hsla(50, 50%, 30%, 0.15);
+  border-right-width: var(--groove);
+  border-bottom-width:var(--groove);
+
+  box-shadow: -1px -1px   0px 0px hsla(50, 50%,  30%, 0.15),
+               2px  2px   0px 0px hsla( 0,  0%, 100%, 1);
+
+  /* Colour definitions in .tech-o-meter */
+  /* baby blue   */  --0:  hsl(215,100%, 85%);
+  /* grass green */  --1:  hsl(115, 85%, 40%);
+  /* apple green */  --2:  hsl( 90, 75%, 60%);
+  /* yellow      */  --3:  hsl( 60, 85%, 60%);
+  /* orange      */  --4:  hsl( 45, 90%, 55%);
+  /* dark orange */  --5:  hsl( 30,100%, 50%);
+  /* signal red  */  --6:  hsl(  5,100%, 50%);
+  /* tomato red  */  --7:  hsl(  0, 95%, 35%);
+  /* raspberry   */  --8:  hsl(335, 85%, 30%);
+  /* deep purple */  --9:  hsl(270, 60%, 20%);
+  /* cold black  */ --10:  hsl(215, 30%, 5%);
+  /* transparent */ --11:  transparent;
+  /* light gray  */ --12a: hsl(20, 10%, 20%);
+  /* dark gray   */ --12b: hsl(30, 60%, 5%);
+}
 
 
 @media (min-width: 420px) {
@@ -1021,7 +1055,7 @@ main article .content h6 ~ p {
   .tech-o-meter {
     float: right;
     width: 42%;
-    margin: 0rem 1rem 2rem 3rem;
+    margin: 0rem 1rem 2rem 2rem;
     }
 }
 
@@ -1032,11 +1066,11 @@ main article .content h6 ~ p {
 */
 main article .content .tech-o-meter:nth-of-type(1) {
   display: none;
-  margin: 0rem 0rem 2rem 3rem;
+  margin: 0.25rem 0rem 2rem 2rem;
   }
 
 main article .content .tech-o-meter:nth-of-type(2) {
-  margin: 1rem auto 4rem auto;
+  margin: 1.5rem auto 2rem auto;
   }
 
 @media (min-width: 500px) {
@@ -1090,6 +1124,39 @@ main article .content .tech-o-meter:nth-of-type(2) {
 }
 
 
+
+/* 16seg font */
+@font-face {
+  font-family: '16segments';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/16segments-Basic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-palette-values --basic-green {
+  font-family: '16segments';
+  override-colors: 1 hsla(120, 10%, 20%, 1),
+                   2 hsla(110,100%, 50%, 1),
+}
+@font-palette-values --basic-red {
+  font-family: '16segments';
+  override-colors: 1 hsla(0, 20%, 20%, 1),
+                   2 hsla(10,100%, 50%, 1),
+}
+/*
+@font-face {
+  font-family: 'segmental';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/segmental.ttf') format('ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+*/
+
+
 .tech-o-meter .headline {
   /*background: yellow;*/
   width: 100%;
@@ -1100,6 +1167,30 @@ main article .content .tech-o-meter:nth-of-type(2) {
   position: relative;
   }
 
+.tech-o-meter .headline:nth-of-type(1) {
+  z-index: 2;
+  }
+
+html[data-mode="dark"] {
+  .tech-o-meter .headline:nth-of-type(1) {
+      font-family: '16segments';
+      letter-spacing: 0.15em;
+      font-palette: --basic-red;
+      font-size: 0.8rem;
+    }
+  @media (min-width: 320px) {
+    .tech-o-meter .headline:nth-of-type(1) { font-size: 1rem; }  }
+  @media (min-width: 400px) {
+    .tech-o-meter .headline:nth-of-type(1) { font-size: 1.2rem; }  }
+  @media (min-width: 500px) {
+    .tech-o-meter .headline:nth-of-type(1) { font-size: 0.65rem; }  }
+  @media (min-width: 600px) {
+    .tech-o-meter .headline:nth-of-type(1) { font-size: 0.8rem; }  }
+  @media (min-width: 1100px) {
+    .tech-o-meter .headline:nth-of-type(1) { font-size: 1.1rem; }  }
+}
+
+
 .tech-o-meter .headline:nth-of-type(2)   {
   margin-top: -1.8rem;
   /*background: orange;*/
@@ -1107,17 +1198,19 @@ main article .content .tech-o-meter:nth-of-type(2) {
   line-height: 1.36rem;
   height: 1.36rem;
   text-align: right;
-  z-index: 10;
+  z-index: 3;
 }
 
 .tech-o-meter .headline label {
   position: relative;
   width: 100%;
+  padding-right: 0.65rem;
   /*background: red;*/
   /*width: 1em;*/
   /*height: 1em;*/
   opacity: 0.5;
   transition: opacity 0.3s ease;
+  z-index: 4;
   }
 
 .tech-o-meter .headline label:hover {
@@ -1162,26 +1255,12 @@ main article .content .tech-o-meter:nth-of-type(2) {
   }
 
 .tech-o-meter .scale {
-  width: 100%;
+  width: 90%;
   height: 100%;
+  margin: auto;
   border-top-left-radius: 52% 100%;
   border-top-right-radius: 52% 100%;
   background: transparent;
-  /* babyblue    */ --0: hsl(215,100%, 85%);
-  /* grassgreen  */ --1: hsl(115, 85%, 40%);
-  /* applegreen  */ --2: hsl( 90, 75%, 60%);
-  /* yellow      */ --3: hsl( 60, 85%, 60%);
-  /* orange      */ --4: hsl( 45, 90%, 55%);
-  /* dark orange */ --5: hsl( 30,100%, 50%);
-  /* signal red  */ --6: hsl(  5,100%, 50%);
-  /* tomato red  */ --7: hsl(  0, 95%, 35%);
-  /* raspberry   */ --8: hsl(335, 85%, 30%);
-  /* deep purple */ --9: hsl(270, 60%, 20%);
-  /* cold black  */--10: hsl(215, 30%, 5%);
-  /* transaorent */--11: transparent;
-  /* light gray  */ --12a: hsl(20, 10%, 20%);
-  /* dark gray   */ --12b: hsl(30, 60%, 5%);
-
   --slices: 12;
   --slice-size: calc( (180 / var(--slices) ) * 1deg);
   --fuzziness: 0.01;
@@ -1204,20 +1283,44 @@ main article .content .tech-o-meter:nth-of-type(2) {
                                    ),
           repeating-conic-gradient(from 180deg at 50% 100%, var(--12a) 0deg 0.125deg, var(--12b) 0.25deg 0.375deg, var(--12a) 0.5deg);
 
-  box-shadow: 2px 3px 9px 0px hsla(10, 10%, 10%, 0.5) inset;
-
-
+  box-shadow: 2px 3px 15px 0px hsla(10, 10%, 10%, 0.5) inset;
 
   padding: 0;
   box-sizing: border-box;
   position: relative;
   }
 
+@media (min-width: 500px) and (max-width: 620px ) {
+  .tech-o-meter .scale { width: 88%; } }
+@media (min-width: 850px) and (max-width: 960px ) {
+  .tech-o-meter .scale { width: 87%; } }
+
+
 .tech-o-meter .clipping {
   position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+/* Tech-O-Meter in dark mode */
+html[data-mode="dark"] {
+.tech-o-meter {
+  background: var(--main-bg);
+
+  border-top-color:   hsla(0, 0%, 15%, 1);
+  border-left-color:  hsla(0, 0%, 15%, 1);
+  border-top-width:   var(--groove);
+  border-left-width:  var(--groove);
+
+  border-right-color: hsla(50, 50%, 0%, 0.3);
+  border-bottom-color:hsla(50, 50%, 0%, 0.3);
+  border-right-width: var(--groove);
+  border-bottom-width:var(--groove);
+
+  box-shadow: -1px -1px 0px 0px hsla(50, 50%,  0%, 0.3),
+               1px  1px 0px 0px hsla( 0,  0%, 15%, 1);
+  }
 }
 
 .tech-o-meter .cover {
@@ -1240,21 +1343,83 @@ html[data-mode="dark"] {
 }
 
 
-.tech-o-meter .brand {
-    text-align: center;
-    top:35%;
+/* Level of Technical Occultism */
+.tech-o-meter .unit {
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  text-rendering: optimizelegibility;
+  color: hsla(50, 10%, 30%, 0.9);
 
-    position: relative;
-    /*font-style: italic;*/
-    font-size: clamp(100%, 2vw, 130%);
-    font-weight: 700;
-    color: transparent;
-    background-color: hsl(25, 5%, 50%);
-    text-shadow: 0px 2px 1px rgba(255,250,250,0.7);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
+  top: 32%;
+  font-size: 0.45rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  }
+html[data-mode="dark"] {
+  .tech-o-meter .unit {
+    color: hsla(220, 6%, 85%, 0.9);
+
+  }
+}
+@media (min-width: 400px) and (max-width: 499px ) {
+  .tech-o-meter .unit {
+    font-size: 0.55rem;
     }
+  }
+@media (min-width: 500px) and (max-width: 620px ) {
+  .tech-o-meter .unit {
+    top: 23%;
+    font-size: 0.4rem;
+    letter-spacing: 0.06em;
+    }
+  }
+@media (min-width: 612px) and (max-width: 849px ) {
+  .tech-o-meter .unit {
+    top: 28%;
+    font-size: 0.45rem;
+    letter-spacing: 0.12em;
+    }
+  }
+
+@media (min-width: 850px) and (max-width: 950px)  {
+  .tech-o-meter .unit {
+    top:19%;
+    font-size: 0.4rem;
+    letter-spacing: 0.06em;
+    }
+  }
+@media (min-width: 951px) and (max-width: 1150px)  {
+  .tech-o-meter .unit {
+    top:25%;
+    font-size: 0.45rem;
+    letter-spacing: 0.12em
+    }
+  }
+@media (min-width: 1150px)  {
+  .tech-o-meter .unit {
+    top:28%;
+    font-size: 0.45rem;
+    letter-spacing: 0.12em;
+    }
+  }
+
+/* TODO? */
+.tech-o-meter .brand {
+  font-family: '16segments';
+  font-palette: --red;
+  background: black;
+  text-align: center;
+  width: 75%;
+  height: 1.35em;
+  line-height: 1.4;
+  margin:auto;
+  top:2rem;
+
+  }
+
+
 
 .tech-o-meter .needle {
 --width: 1.5%;
@@ -1270,9 +1435,11 @@ html[data-mode="dark"] {
   left: calc( 50% - (var(--width) / 2) );
   transform-origin: 50% calc( 100% - var(--mount-size) * 1 );
   transform: rotate( var(--angle) );
+
   box-shadow: 2px 3px 5px 0px hsla(0, 10%, 5%, 0.4),
               0.5px 0.5px 1px 0px hsla(0, 0%, 100%, 0.6) inset,
               -0.5px -0.5px 1px 0px hsla(0, 0%, 0%, 0.3) inset;
+
   }
 
 .tech-o-meter .needle:before {
@@ -1293,9 +1460,11 @@ html[data-mode="dark"] {
   font-weight: bold;
   color: black;
   transform: rotateZ( calc( -1 * var(--angle) ) );
+
   box-shadow: 0px 0px 3px 0px hsla(0,   0%,   0%, 0.0) inset,
               0px 0px 0px 0px hsla(0, 100%, 100%, 0.0) inset,
-              2px 2px 8px 0px hsla(0, 0%, 0%, 0.6);
+              2px 2px 6px 0px hsla(0, 0%, 0%, 0.5);
+
   letter-spacing: -0.075em;
   }
 
@@ -1316,9 +1485,11 @@ html[data-mode="dark"] {
   bottom: calc( var(--width) / 2 );
   left: calc( 50% - (var(--width) / 2) );
   border-radius: 50%;
-    box-shadow: 2px 3px 2px 0px hsla(0, 10%, 5%, 0.1),
-                0px 0px 1px 0px hsla(0, 0%, 100%, 0.5) inset,
-                -0.5px -0.5px 1px 0px hsla(0, 0%, 0%, 0.3) inset;
+
+  box-shadow: 2px 3px 2px 0px hsla(0, 10%, 5%, 0.1),
+              0px 0px 1px 0px hsla(0, 0%, 100%, 0.5) inset,
+              -0.5px -0.5px 1px 0px hsla(0, 0%, 0%, 0.3) inset;
+
   }
 
 
@@ -1333,6 +1504,23 @@ html[data-mode="dark"] {
     }
 }
 
+html[data-mode="dark"] {
+  .tech-o-meter .needle {
+    box-shadow: 2px 3px 5px 0px hsla(0, 0%, 0%, 0.85),
+                0.5px 0.5px 1px 0px hsla(0, 0%, 100%, 0.7) inset,
+                -0.5px -0.5px 1px 0px hsla(0, 0%, 0%, 0.5) inset;
+    }
+  .tech-o-meter .needle:before {
+    background: hsla(220, 15%, 85%, 1);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0) inset,0px 0px 0px 0px rgba(255,255,255,0) inset,2px 3px 5px 0px rgb(0, 0, 0);
+    }
+.tech-o-meter .needle:after {
+    box-shadow: 2px 3px 2px 0px rgba(14,11,11,.25),
+                0px 0px 1px 0px rgba(255,255,255,.5) inset,
+                -0.5px -0.5px 1px 0px rgba(0,0,0,.3) inset;
+
+    }
+}
 
 /* The Tech-O-Meter modal */
 .tech-o-meter-modal {
@@ -1345,11 +1533,11 @@ html[data-mode="dark"] {
   z-index: 100;
   visibility: hidden;
   transform: translate(0%, 110vh);
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   border-radius: .5rem;
   box-shadow: 3px 4px 16px rgba(0,0,20,0.15);
   background-color: rgb(255 255 255 / 90%);
-
+  overflow: auto;
   }
 html[data-mode="dark"] {
   .tech-o-meter-modal {
@@ -1371,6 +1559,55 @@ html[data-mode="dark"] {
   }
 }
 
+
+
+.tech-o-meter-modal table tbody tr td { padding-top: 0.2rem; padding-bottom: 0.2rem; background-color: white; }
+.tech-o-meter-modal table td:first-of-type { text-align: center; min-width: 4rem; max-width: 6rem;}
+.tech-o-meter-modal table td:first-of-type span {
+    --width: 1.3em;
+      content: var(--level);
+      line-height: calc( var(--width) );
+      box-sizing: border-box;
+      width: var(--width);
+      aspect-ratio: 1/1;
+      /*height: var(--width);*/
+      background: white;
+      color: black;
+      display: inline-block;
+      text-align: center;
+      border-radius: 20%;
+      font-weight: bold;
+      box-shadow: 0px 0px 3px 0px hsla(0,   0%,   0%, 0.0) inset,
+                  0px 0px 0px 0px hsla(0, 100%, 100%, 0.0) inset,
+                  2px 2px 6px 0px hsla(0, 0%, 0%, 0.5);
+      letter-spacing: -0.05em;
+      }
+
+.tech-o-meter-modal table tr:nth-of-type(1) td:first-of-type { background-color: var(--0); }
+.tech-o-meter-modal table tr:nth-of-type(2) td:first-of-type { background-color: var(--1); }
+.tech-o-meter-modal table tr:nth-of-type(3) td:first-of-type { background-color: var(--2); }
+.tech-o-meter-modal table tr:nth-of-type(4) td:first-of-type { background-color: var(--3); }
+.tech-o-meter-modal table tr:nth-of-type(5) td:first-of-type { background-color: var(--4); }
+.tech-o-meter-modal table tr:nth-of-type(6) td:first-of-type { background-color: var(--5); }
+.tech-o-meter-modal table tr:nth-of-type(7) td:first-of-type { background-color: var(--6); }
+.tech-o-meter-modal table tr:nth-of-type(8) td:first-of-type { background-color: var(--7); }
+.tech-o-meter-modal table tr:nth-of-type(9) td:first-of-type { background-color: var(--8); }
+.tech-o-meter-modal table tr:nth-of-type(10) td:first-of-type { background-color: var(--9); }
+.tech-o-meter-modal table tr:nth-of-type(11) td:first-of-type { background-color: var(--10); }
+.tech-o-meter-modal table tr:nth-of-type(12) td:first-of-type { background-image: repeating-conic-gradient(from 180deg at 50% 100%, var(--12a) 0deg 0.125deg, var(--12b) 0.25deg 0.375deg, var(--12a) 0.5deg); }
+
+.tech-o-meter-modal table tbody tr td:nth-of-type(2) {
+  font-size: 0.7rem;
+  white-space: normal;
+  line-height: 1.2;
+ }
+
+html[data-mode="dark"] {
+  .tech-o-meter-modal table tbody tr td { background-color: transparent; }
+  .tech-o-meter-modal table td:first-of-type span { background: hsla(220, 10%, 90%, 1); }
+}
+
+
 @media (max-width: 600px) {
   .tech-o-meter-modal {
     top: 3rem;
@@ -1391,7 +1628,12 @@ html[data-mode="dark"] {
     left: 290px;
     right:30px;
     }
+  div.content .table-wrapper table {  min-width: 100%; }
 }
+
+
+
+
 
 /* Make it visible with JS by adding class to body */
 .tech-o-meter-modal-show .tech-o-meter-modal {
